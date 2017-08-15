@@ -152,6 +152,7 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Application.h" />
     <ClInclude Include="ClockHUD.h" />
     <ClInclude Include="collision.h" />
     <ClInclude Include="ColorConsole.h" />
@@ -161,6 +162,7 @@
     <ClInclude Include="sfGUI.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Application.cpp" />
     <ClCompile Include="collision.cpp" />
     <ClCompile Include="items.cpp" />
     <ClCompile Include="oop-kp.cpp" />
