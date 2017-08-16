@@ -159,13 +159,20 @@
     <ClInclude Include="FrameClock.h" />
     <ClInclude Include="items.h" />
     <ClInclude Include="nomads.h" />
+    <ClInclude Include="ResourceManager.h" />
     <ClInclude Include="sfGUI.h" />
+    <ClInclude Include="State.h" />
+    <ClInclude Include="StateStack.h" />
+    <ClInclude Include="StateTitle.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="collision.cpp" />
     <ClCompile Include="items.cpp" />
     <ClCompile Include="oop-kp.cpp" />
+    <ClCompile Include="State.cpp" />
+    <ClCompile Include="StateStack.cpp" />
+    <ClCompile Include="StateTitle.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

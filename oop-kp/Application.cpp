@@ -24,6 +24,9 @@ Application::Application() : nomad1(100, 100, 200) {
 	std::cout << light_cyan << "light_cyan " << light_magenta << "light_magenta " << light_yellow << "light_yellow " << white << "white" << endl;
 	std::cout << light_red << " red " << on_blue << " on blue " << grey << on_black << "back in black " << endl;
 	
+	Fonts.load(Fonts::Main, "fonts\\hermes.ttf");
+	// SAMPLE  - auto font = Fonts.get(Fonts::Main);
+
 	/*mFonts.load(Fonts::Main, "Media/Sansation.ttf");
 
 	mTextures.load(Textures::TitleScreen, "Media/Textures/TitleScreen.png");

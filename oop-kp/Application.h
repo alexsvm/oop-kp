@@ -5,6 +5,7 @@
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/Graphics/Text.hpp>
 
+#include "ResourceManager.h"
 #include "sfGUI.h"
 #include "items.h"
 #include "nomads.h"
@@ -33,6 +34,10 @@ private:
 	sf::ContextSettings settings;
 
 	sf::RenderWindow Window;
+
+	TextureHolder Textures;
+	FontHolder Fonts;
+
 
 	sfGUI sfgui;
 	Shapes shapes;
