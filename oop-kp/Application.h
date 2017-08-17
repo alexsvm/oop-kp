@@ -10,8 +10,8 @@
 #include "items.h"
 #include "nomads.h"
 #include "ColorConsole.h"
-#include "FrameClock.h"
-#include "ClockHUD.h"
+#include "HUD.h"
+
 
 
 class Application {
@@ -24,10 +24,6 @@ private:
 	void processInput();
 	void update(sf::Time dt);
 	void render();
-
-	//void updateStatistics(sf::Time dt);
-	//void registerStates();
-
 
 private:
 	static const sf::Time TimePerFrame;
@@ -44,21 +40,13 @@ private:
 	nomad nomad1;
 
 	float _mx, _my;
-
-	sfx::FrameClock f_clock;
-	//ClockHUD hud;
-
+	
+	HUD *mHUD;
 
 
-
-	//TextureHolder			mTextures;
-	//FontHolder				mFonts;
 	//Player					mPlayer;
 
 	//StateStack				mStateStack;
 
-	//sf::Text				mStatisticsText;
-	//sf::Time				mStatisticsUpdateTime;
-	//std::size_t				mStatisticsNumFrames;
 
 };

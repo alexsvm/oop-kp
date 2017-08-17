@@ -6,7 +6,6 @@ Application::Application() : nomad1(100, 100, 200) {
 	srand(std::time(NULL));
 
 	settings.antialiasingLevel = 8;
-	
 	Window.create(sf::VideoMode(800, 800), "Hello world!", sf::Style::Default, settings); // Create SFML's window.
 	Window.setKeyRepeatEnabled(false);
 
@@ -24,15 +23,17 @@ Application::Application() : nomad1(100, 100, 200) {
 	std::cout << light_cyan << "light_cyan " << light_magenta << "light_magenta " << light_yellow << "light_yellow " << white << "white" << endl;
 	std::cout << light_red << " red " << on_blue << " on blue " << grey << on_black << "back in black " << endl;
 	
-	Fonts.load(Fonts::Main, "fonts\\hermes.ttf");
+	Fonts.load(Fonts::Main, "fonts\\hermes.ttf"); 
+	Fonts.load(Fonts::HUD, "fonts\\hermes.ttf");
+
+	mHUD = new HUD(State::Context{ Window, Textures, Fonts });
+
+
 	// SAMPLE  - auto font = Fonts.get(Fonts::Main);
 
-	/*mFonts.load(Fonts::Main, "Media/Sansation.ttf");
+	/*
 
 	mTextures.load(Textures::TitleScreen, "Media/Textures/TitleScreen.png");
-	mTextures.load(Textures::ButtonNormal, "Media/Textures/ButtonNormal.png");
-	mTextures.load(Textures::ButtonSelected, "Media/Textures/ButtonSelected.png");
-	mTextures.load(Textures::ButtonPressed, "Media/Textures/ButtonPressed.png");
 
 	mStatisticsText.setFont(mFonts.get(Fonts::Main));
 	mStatisticsText.setPosition(5.f, 5.f);
@@ -46,20 +47,8 @@ void Application::run() {
 	sf::Clock clock;
 	sf::Time timeSinceLastUpdate = sf::Time::Zero;
 
-	// === FPS HUD ===
-	//sf::Font hud_font;
-	//if (!font.loadFromFile("fonts\\hermes.ttf"))
-	//{
-	//	sf::err() << "Failed to load 01-digit.ttf";
-	//	//return EXIT_FAILURE;
-	//}
-	
-	f_clock.setSampleDepth(100); // Sample 100 frames for averaging. - for HUD?
-
-	//float sec;
-
 	while (Window.isOpen()) {
-		f_clock.beginFrame(); // Start a new frame. #HUD
+		mHUD->begin_update();
 
 		processInput();
 
@@ -70,7 +59,7 @@ void Application::run() {
 		}
 		render();
 
-		f_clock.endFrame(); // End frame. #HUD
+		mHUD->end_update();
 	}
 }
 
@@ -156,7 +145,7 @@ void Application::render() {
 	nomad1.Render(Window);
 	sfgui.Render(Window);
 
-	//Window.draw(hud);
+	mHUD->draw();
 
 	Window.display();
 }

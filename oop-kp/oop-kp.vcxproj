@@ -157,6 +157,7 @@
     <ClInclude Include="collision.h" />
     <ClInclude Include="ColorConsole.h" />
     <ClInclude Include="FrameClock.h" />
+    <ClInclude Include="HUD.h" />
     <ClInclude Include="items.h" />
     <ClInclude Include="nomads.h" />
     <ClInclude Include="ResourceManager.h" />
@@ -168,6 +169,7 @@
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="collision.cpp" />
+    <ClCompile Include="HUD.cpp" />
     <ClCompile Include="items.cpp" />
     <ClCompile Include="oop-kp.cpp" />
     <ClCompile Include="State.cpp" />
