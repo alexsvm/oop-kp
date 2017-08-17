@@ -176,6 +176,9 @@
     <ClCompile Include="StateStack.cpp" />
     <ClCompile Include="StateTitle.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\TitleScreen.png" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

@@ -6,6 +6,8 @@
 #include <SFML/Graphics/Text.hpp>
 
 #include "ResourceManager.h"
+#include "StateStack.h"
+
 #include "sfGUI.h"
 #include "items.h"
 #include "nomads.h"
@@ -24,6 +26,8 @@ private:
 	void processInput();
 	void update(sf::Time dt);
 	void render();
+	void registerStates();
+
 
 private:
 	static const sf::Time TimePerFrame;
@@ -43,10 +47,9 @@ private:
 	
 	HUD *mHUD;
 
-
 	//Player					mPlayer;
 
-	//StateStack				mStateStack;
+	StateStack mStateStack;
 
 
 };

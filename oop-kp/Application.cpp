@@ -1,8 +1,10 @@
 #include "Application.h"
+#include "StateTitle.h"
 
 const sf::Time Application::TimePerFrame = sf::seconds(1.f / 60.f);
 
-Application::Application() : nomad1(100, 100, 200) {
+Application::Application() : nomad1(100, 100, 200), Textures(), Fonts(), mStateStack(State::Context(Window, Textures, Fonts))
+{
 	srand(std::time(NULL));
 
 	settings.antialiasingLevel = 8;
@@ -14,6 +16,7 @@ Application::Application() : nomad1(100, 100, 200) {
 
 	Window.resetGLStates();
 
+	// Print window settings:
 	settings = Window.getSettings();
 	std::cout << "depth bits:" << settings.depthBits << std::endl;
 	std::cout << "stencil bits:" << settings.stencilBits << std::endl;
@@ -22,25 +25,16 @@ Application::Application() : nomad1(100, 100, 200) {
 	std::cout << cyan << "cyan " << magenta << "magenta " << yellow << "yellow " << grey << "grey " << endl;
 	std::cout << light_cyan << "light_cyan " << light_magenta << "light_magenta " << light_yellow << "light_yellow " << white << "white" << endl;
 	std::cout << light_red << " red " << on_blue << " on blue " << grey << on_black << "back in black " << endl;
-	
+
+	// Loading resources:
 	Fonts.load(Fonts::Main, "fonts\\hermes.ttf"); 
 	Fonts.load(Fonts::HUD, "fonts\\hermes.ttf");
+	Textures.load(Textures::TitleScreen, "textures\\TitleScreen.png");
 
 	mHUD = new HUD(State::Context{ Window, Textures, Fonts });
 
-
-	// SAMPLE  - auto font = Fonts.get(Fonts::Main);
-
-	/*
-
-	mTextures.load(Textures::TitleScreen, "Media/Textures/TitleScreen.png");
-
-	mStatisticsText.setFont(mFonts.get(Fonts::Main));
-	mStatisticsText.setPosition(5.f, 5.f);
-	mStatisticsText.setCharacterSize(10u);
-
 	registerStates();
-	mStateStack.pushState(States::Title);*/
+	mStateStack.pushState(States::Title);
 }
 
 void Application::run() {
@@ -56,10 +50,11 @@ void Application::run() {
 		while (timeSinceLastUpdate > TimePerFrame) {
 			timeSinceLastUpdate -= TimePerFrame;
 			update(TimePerFrame);
+
+			//if (mStateStack.isEmpty())
+			//	Window.close();
 		}
 		render();
-
-		mHUD->end_update();
 	}
 }
 
@@ -67,7 +62,8 @@ void Application::processInput() {
 	sf::Event event;
 
 	while (Window.pollEvent(event)) { // Event processing.
-									  //
+		mStateStack.handleEvent(event);
+
 		sfgui.HandleEvent(event);
 		shapes.HandleEvent(event, Window);
 		nomad1.HandleEvent(event);
@@ -133,6 +129,8 @@ void Application::processInput() {
 }
 
 void Application::update(sf::Time dt) {
+	mStateStack.update(dt);
+
 	sfgui.Update(dt);
 	shapes.Update(dt);
 	nomad1.Update(dt);
@@ -141,12 +139,20 @@ void Application::update(sf::Time dt) {
 void Application::render() {
 	Window.clear();
 
+	mStateStack.draw();
+
 	shapes.Render(Window);
 	nomad1.Render(Window);
 	sfgui.Render(Window);
 
+	mHUD->end_update();
 	mHUD->draw();
 
 	Window.display();
+}
+
+void Application::registerStates() {
+	mStateStack.registerState<StateTitle>(States::Title);
+
 }
 
