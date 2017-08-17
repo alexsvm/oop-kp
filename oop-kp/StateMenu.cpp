@@ -1,9 +1,17 @@
+//#include <memory>
 #include "StateMenu.h"
-#include <memory>
+#include <SFML/Graphics/Font.hpp>
+
 
 
 StateMenu::StateMenu(StateStack & stack, Context context) : State(stack, context) {
 
+	std::shared_ptr<const sf::Font> my_font = std::make_shared<const sf::Font>(context.fonts->get(Fonts::Menu));
+	sfgDesktop.GetEngine().GetResourceManager().AddFont("menu_font", my_font);
+	sfgDesktop.SetProperty("Button", "FontName", "menu_font" );
+	sfgDesktop.SetProperty("Button", "FontSize", 48.f);
+	sfgDesktop.SetProperty("Button", "Color", sf::Color::Yellow);
+	sfgDesktop.SetProperty("#btn_exit", "Color", sf::Color::Red);
 	//sfgDesktop.SetProperties(
 	//	/*"Window#second_window > Box > Label {"
 	//	"	FontName: custom_font;"
@@ -20,15 +28,6 @@ StateMenu::StateMenu(StateStack & stack, Context context) : State(stack, context
 	//	//"	FontSize: 16;"
 	//	"}"
 	//);
-
-	//std::shared_ptr<sf::Font> my_font = std::make_shared<sf::Font>();
-	//auto my_font = std::make_shared<sf::Font>(context.fonts->get(Fonts::Main));
-	//sfgDesktop.GetEngine().GetResourceManager().AddFont("menu_font", my_font);
-	sfgDesktop.SetProperty( "Button", "FontName", "fonts/menu.ttf" );
-	sfgDesktop.SetProperty("Button", "FontSize", 48.f);
-	//sfgDesktop.SetProperty("Button", "FontName", "menu_font");
-	sfgDesktop.SetProperty("Button", "Color", sf::Color::Yellow);
-	sfgDesktop.SetProperty("#btn_exit", "Color", sf::Color::Red);
 
 
 	btnPlay = sfg::Button::Create(" P L A Y ");
