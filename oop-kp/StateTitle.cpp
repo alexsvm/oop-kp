@@ -6,7 +6,7 @@
 #include <SFML/Graphics/RenderWindow.hpp>
 
 
-StateTitle::StateTitle(StateStack& stack, Context context) : State(stack, context), mText(), mShowText(true), mTextEffectTime(sf::Time::Zero ){
+StateTitle::StateTitle(StateStack& stack, Context context) : State(stack, context), mText(), mShowText(true), mTextEffectTime(sf::Time::Zero ) {
 	mBackgroundSprite.setTexture(context.textures->get(Textures::TitleScreen));
 	mText.setFont(context.fonts->get(Fonts::Main));
 	mText.setString("Press any key to start");

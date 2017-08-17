@@ -25,7 +25,7 @@ namespace Textures {
 }
 
 namespace Fonts {
-	enum ID { Main, HUD };
+	enum ID { Main, HUD, Menu };
 }
 
 

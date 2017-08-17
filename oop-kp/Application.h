@@ -7,8 +7,9 @@
 
 #include "ResourceManager.h"
 #include "StateStack.h"
+#include "StateMenu.h"
 
-#include "sfGUI.h"
+//#include "sfGUI.h"
 #include "items.h"
 #include "nomads.h"
 #include "ColorConsole.h"
@@ -39,11 +40,11 @@ private:
 	FontHolder Fonts;
 
 
-	sfGUI sfgui;
+	//sfGUI sfgui;
 	Shapes shapes;
 	nomad nomad1;
 
-	float _mx, _my;
+	//float _mx, _my;
 	
 	HUD *mHUD;
 

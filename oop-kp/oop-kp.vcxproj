@@ -163,6 +163,7 @@
     <ClInclude Include="ResourceManager.h" />
     <ClInclude Include="sfGUI.h" />
     <ClInclude Include="State.h" />
+    <ClInclude Include="StateMenu.h" />
     <ClInclude Include="StateStack.h" />
     <ClInclude Include="StateTitle.h" />
   </ItemGroup>
@@ -173,6 +174,7 @@
     <ClCompile Include="items.cpp" />
     <ClCompile Include="oop-kp.cpp" />
     <ClCompile Include="State.cpp" />
+    <ClCompile Include="StateMenu.cpp" />
     <ClCompile Include="StateStack.cpp" />
     <ClCompile Include="StateTitle.cpp" />
   </ItemGroup>

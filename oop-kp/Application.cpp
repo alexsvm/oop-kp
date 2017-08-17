@@ -8,10 +8,10 @@ Application::Application() : nomad1(100, 100, 200), Textures(), Fonts(), mStateS
 	srand(std::time(NULL));
 
 	settings.antialiasingLevel = 8;
-	Window.create(sf::VideoMode(800, 800), "Hello world!", sf::Style::Default, settings); // Create SFML's window.
+	Window.create(sf::VideoMode(1024, 768), "Hello world!", sf::Style::Default, settings); // Create SFML's window.
 	Window.setKeyRepeatEnabled(false);
 
-	sfgui._shapes = &shapes;
+	//sfgui._shapes = &shapes;
 	nomad1.Start();
 
 	Window.resetGLStates();
@@ -28,6 +28,7 @@ Application::Application() : nomad1(100, 100, 200), Textures(), Fonts(), mStateS
 
 	// Loading resources:
 	Fonts.load(Fonts::Main, "fonts\\hermes.ttf"); 
+	Fonts.load(Fonts::Menu, "fonts\\menu.ttf");
 	Fonts.load(Fonts::HUD, "fonts\\hermes.ttf");
 	Textures.load(Textures::TitleScreen, "textures\\TitleScreen.png");
 
@@ -51,8 +52,8 @@ void Application::run() {
 			timeSinceLastUpdate -= TimePerFrame;
 			update(TimePerFrame);
 
-			//if (mStateStack.isEmpty())
-			//	Window.close();
+			if (mStateStack.isEmpty())
+				Window.close();
 		}
 		render();
 	}
@@ -64,7 +65,7 @@ void Application::processInput() {
 	while (Window.pollEvent(event)) { // Event processing.
 		mStateStack.handleEvent(event);
 
-		sfgui.HandleEvent(event);
+		//sfgui.HandleEvent(event);
 		shapes.HandleEvent(event, Window);
 		nomad1.HandleEvent(event);
 		//
@@ -78,52 +79,52 @@ void Application::processInput() {
 			Window.setView(sf::View(visibleArea));
 
 		}
-		if (event.type == sf::Event::KeyPressed) {
-			if (event.key.code == sf::Keyboard::Up) {
-				sf::View view = Window.getView();
-				view.move(0, -50);
-				Window.setView(view);
-			}
-			if (event.key.code == sf::Keyboard::Right) {
-				sf::View view = Window.getView();
-				view.move(50, 0);
-				Window.setView(view);
-			}
-			if (event.key.code == sf::Keyboard::Down) {
-				sf::View view = Window.getView();
-				view.move(0, 50);
-				Window.setView(view);
-			}
-			if (event.key.code == sf::Keyboard::Left) {
-				sf::View view = Window.getView();
-				view.move(-50, 0);
-				Window.setView(view);
-			}
-		} // KeyPressed
-		if (event.type == sf::Event::MouseButtonPressed) {
-			if (event.mouseButton.button == sf::Mouse::Left) {
-				_mx = event.mouseButton.x;
-				_my = event.mouseButton.y;
-			}
-			if (event.mouseButton.button == sf::Mouse::Right) {
-				;
-			}
-		} // <= MouseButtonPressed
-		if (event.type == sf::Event::MouseButtonReleased) {
-			if (event.mouseButton.button == sf::Mouse::Left) {
-				;
-			}
-		} // <=MouseButtonReleased
-		if (event.type == sf::Event::MouseMoved) {
-			if (!shapes.Selected() && sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
-				sf::Vector2i mc = sf::Mouse::getPosition();
-				sf::View view = Window.getView();
-				view.move(_mx - event.mouseMove.x, _my - event.mouseMove.y);
-				Window.setView(view);
-				_mx = event.mouseMove.x;
-				_my = event.mouseMove.y;
-			}
-		} // <=MouseMoved
+		//if (event.type == sf::Event::KeyPressed) {
+		//	if (event.key.code == sf::Keyboard::Up) {
+		//		sf::View view = Window.getView();
+		//		view.move(0, -50);
+		//		Window.setView(view);
+		//	}
+		//	if (event.key.code == sf::Keyboard::Right) {
+		//		sf::View view = Window.getView();
+		//		view.move(50, 0);
+		//		Window.setView(view);
+		//	}
+		//	if (event.key.code == sf::Keyboard::Down) {
+		//		sf::View view = Window.getView();
+		//		view.move(0, 50);
+		//		Window.setView(view);
+		//	}
+		//	if (event.key.code == sf::Keyboard::Left) {
+		//		sf::View view = Window.getView();
+		//		view.move(-50, 0);
+		//		Window.setView(view);
+		//	}
+		//} // KeyPressed
+		//if (event.type == sf::Event::MouseButtonPressed) {
+		//	if (event.mouseButton.button == sf::Mouse::Left) {
+		//		_mx = event.mouseButton.x;
+		//		_my = event.mouseButton.y;
+		//	}
+		//	if (event.mouseButton.button == sf::Mouse::Right) {
+		//		;
+		//	}
+		//} // <= MouseButtonPressed
+		//if (event.type == sf::Event::MouseButtonReleased) {
+		//	if (event.mouseButton.button == sf::Mouse::Left) {
+		//		;
+		//	}
+		//} // <=MouseButtonReleased
+		//if (event.type == sf::Event::MouseMoved) {
+		//	if (!shapes.Selected() && sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+		//		sf::Vector2i mc = sf::Mouse::getPosition();
+		//		sf::View view = Window.getView();
+		//		view.move(_mx - event.mouseMove.x, _my - event.mouseMove.y);
+		//		Window.setView(view);
+		//		_mx = event.mouseMove.x;
+		//		_my = event.mouseMove.y;
+		//	}
+		//} // <=MouseMoved
 	} // <= Event processing
 
 }
@@ -131,7 +132,7 @@ void Application::processInput() {
 void Application::update(sf::Time dt) {
 	mStateStack.update(dt);
 
-	sfgui.Update(dt);
+	//sfgui.Update(dt);
 	shapes.Update(dt);
 	nomad1.Update(dt);
 }
@@ -143,7 +144,7 @@ void Application::render() {
 
 	shapes.Render(Window);
 	nomad1.Render(Window);
-	sfgui.Render(Window);
+	//sfgui.Render(Window);
 
 	mHUD->end_update();
 	mHUD->draw();
@@ -153,6 +154,6 @@ void Application::render() {
 
 void Application::registerStates() {
 	mStateStack.registerState<StateTitle>(States::Title);
-
+	mStateStack.registerState<StateMenu>(States::Menu);
 }
 
