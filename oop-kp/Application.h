@@ -8,6 +8,7 @@
 #include "ResourceManager.h"
 #include "StateStack.h"
 #include "StateMenu.h"
+#include "StateGame.h"
 
 //#include "sfGUI.h"
 #include "items.h"

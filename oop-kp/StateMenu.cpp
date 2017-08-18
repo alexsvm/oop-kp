@@ -8,35 +8,41 @@ StateMenu::StateMenu(StateStack & stack, Context context) : State(stack, context
 
 	std::shared_ptr<const sf::Font> my_font = std::make_shared<const sf::Font>(context.fonts->get(Fonts::Menu));
 	sfgDesktop.GetEngine().GetResourceManager().AddFont("menu_font", my_font);
-	sfgDesktop.SetProperty("Button", "FontName", "menu_font" );
-	sfgDesktop.SetProperty("Button", "FontSize", 48.f);
-	sfgDesktop.SetProperty("Button", "Color", sf::Color::Yellow);
-	sfgDesktop.SetProperty("#btn_exit", "Color", sf::Color::Red);
-	//sfgDesktop.SetProperties(
-	//	/*"Window#second_window > Box > Label {"
-	//	"	FontName: custom_font;"
-	//	"	FontSize: 18;"
-	//	"}"*/
-	//	"#btn_play{"
-	//	"	Color: #FFFF00FF;"
-	//	//"	FontName: \\fonts\\hermes.ttf;"
-	//	//"	FontSize: 15;"
-	//	"}"
-	//	"Button {"
-	//	"	Color: #FF0000FF;"
-	//	//"	FontName: \\fonts\\hermes.ttf;"
-	//	//"	FontSize: 16;"
-	//	"}"
-	//);
+	//sfgDesktop.SetProperty("Button", "FontName", "menu_font" );
+	//sfgDesktop.SetProperty("Button", "FontSize", 48.f);
+	//sfgDesktop.SetProperty("Button", "Color", sf::Color::Yellow);
+	//sfgDesktop.SetProperty("#btn_exit", "Color", sf::Color::Red);
+	sfgDesktop.SetProperties(
+		//	/*"Window#second_window > Box > Label {"
+		//	"	FontName: custom_font;"
+		//	"	FontSize: 18;"
+		//	"}"*/
+		"#main_window {"
+		" Color: #0F000F0F;"
+		"}"
+		"Button {"
+			" Color: #FF0000FF;"
+			" FontName: menu_font;"
+			" FontSize: 32;"
+			"}"
+		"#btn_play {"
+			" Color: #FFFF00FF;"
+			//"	FontName: \\fonts\\hermes.ttf;"
+			" FontSize: 48;"
+			"}"
+		"Box {"
+			" Color: #000F0F0F;"
+		"}"
+	);
 
 
 	btnPlay = sfg::Button::Create(" P L A Y ");
-	btnPlay->GetSignal(sfg::Widget::OnLeftClick).Connect([this] {; });
+	btnPlay->GetSignal(sfg::Widget::OnLeftClick).Connect([this] { requestStackPop();  requestStackPush(States::Game); });
 	btnPlay->SetRequisition(sf::Vector2f(0.f, 64.f));
 
 
 	btnExit = sfg::Button::Create(" E X I T ");
-	btnExit->GetSignal(sfg::Widget::OnLeftClick).Connect([this] { requestStackPop();; });
+	btnExit->GetSignal(sfg::Widget::OnLeftClick).Connect([this] { requestStackPop(); });
 
 	sfg::Box::Ptr box = sfg::Box::Create(sfg::Box::Orientation::VERTICAL);
 	box->SetSpacing(20.f);

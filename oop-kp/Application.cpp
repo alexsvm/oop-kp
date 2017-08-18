@@ -155,5 +155,6 @@ void Application::render() {
 void Application::registerStates() {
 	mStateStack.registerState<StateTitle>(States::Title);
 	mStateStack.registerState<StateMenu>(States::Menu);
+	mStateStack.registerState<StateGame>(States::Game);
 }
 

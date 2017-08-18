@@ -14,6 +14,7 @@ namespace sf {
 
 namespace Textures {
 	enum ID {
+		BlueBox,
 		Eagle,
 		Raptor,
 		Desert,

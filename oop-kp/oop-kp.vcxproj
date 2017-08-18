@@ -153,30 +153,42 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h" />
+    <ClInclude Include="BlueBox.h" />
+    <ClInclude Include="Category.h" />
     <ClInclude Include="ClockHUD.h" />
     <ClInclude Include="collision.h" />
     <ClInclude Include="ColorConsole.h" />
+    <ClInclude Include="Entity.h" />
     <ClInclude Include="FrameClock.h" />
     <ClInclude Include="HUD.h" />
     <ClInclude Include="items.h" />
     <ClInclude Include="nomads.h" />
     <ClInclude Include="ResourceManager.h" />
-    <ClInclude Include="sfGUI.h" />
+    <ClInclude Include="SceneNode.h" />
     <ClInclude Include="State.h" />
+    <ClInclude Include="StateGame.h" />
     <ClInclude Include="StateMenu.h" />
     <ClInclude Include="StateStack.h" />
     <ClInclude Include="StateTitle.h" />
+    <ClInclude Include="Utility.h" />
+    <ClInclude Include="World.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
+    <ClCompile Include="BlueBox.cpp" />
     <ClCompile Include="collision.cpp" />
+    <ClCompile Include="Entity.cpp" />
     <ClCompile Include="HUD.cpp" />
     <ClCompile Include="items.cpp" />
     <ClCompile Include="oop-kp.cpp" />
+    <ClCompile Include="SceneNode.cpp" />
     <ClCompile Include="State.cpp" />
+    <ClCompile Include="StateGame.cpp" />
     <ClCompile Include="StateMenu.cpp" />
     <ClCompile Include="StateStack.cpp" />
     <ClCompile Include="StateTitle.cpp" />
+    <ClCompile Include="Utility.cpp" />
+    <ClCompile Include="World.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\TitleScreen.png" />
