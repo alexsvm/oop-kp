@@ -75,6 +75,10 @@ sf::Transform SceneNode::getWorldTransform() const {
 	return transform;
 }
 
+sf::FloatRect SceneNode::getBounds() const {
+	return sf::FloatRect();
+}
+
 //void SceneNode::onCommand(const Command& command, sf::Time dt)
 //{
 //	// Command current node, if category matches

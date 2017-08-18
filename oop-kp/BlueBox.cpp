@@ -20,11 +20,10 @@
 
 BlueBox::BlueBox(const TextureHolder& textures, sf::Vector2f size) { // mSprite(textures.get(Textures::BlueBox)) {
 	centerOrigin(mShape);
-	//shape->setPosition(sf::Vector2f(x, y));
 	mShape.setSize(size);
-	mShape.setOutlineThickness(3.f);
+	mShape.setOutlineThickness(0.f);
 	mShape.setOutlineColor(sf::Color::Blue);
-	mShape.setFillColor(sf::Color::Magenta);
+	mShape.setFillColor(sf::Color::Blue);
 }
 
 void BlueBox::drawCurrent(sf::RenderTarget& target, sf::RenderStates states) const {
@@ -35,6 +34,10 @@ void BlueBox::drawCurrent(sf::RenderTarget& target, sf::RenderStates states) con
 
 void BlueBox::updateCurrent(sf::Time dt) {
 	mShape.setPosition(this->getPosition());
+}
+
+sf::FloatRect BlueBox::getBounds() const {
+	return sf::FloatRect(mShape.getPosition(), mShape.getSize());
 }
 
 //unsigned int BlueBox::getCategory() const

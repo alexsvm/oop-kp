@@ -11,6 +11,7 @@ public:
 
 	virtual void drawCurrent(sf::RenderTarget& target, sf::RenderStates states) const;
 	virtual void updateCurrent(sf::Time dt);
+	virtual sf::FloatRect getBounds() const;
 
 private:
 	sf::RectangleShape		mShape;

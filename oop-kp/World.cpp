@@ -10,44 +10,41 @@
 World::World(sf::RenderWindow& window)
 	: mWindow(window)
 	, mWorldView(window.getDefaultView())
-	//, mTextures()
 	, mSceneGraph()
 	, mSceneLayers()
-	, mWorldBounds(0.f, 0.f, mWorldView.getSize().x, 2000.f)
-	//, mSpawnPosition(mWorldView.getSize().x / 2.f, mWorldBounds.height - mWorldView.getSize().y / 2.f)
-	//, mScrollSpeed(-50.f)
-	//, mPlayerAircraft(nullptr)
-	, red(sf::Vector2f(100, 100))
+	, mWorldBounds(50.f, 50.f, mWorldView.getSize().x - 100, mWorldView.getSize().y - 100)
+	, red(sf::Vector2f(68.f, 68.f))
 {
-	//loadTextures();
-	buildScene();
+	boundShape.setSize(sf::Vector2f(mWorldBounds.width, mWorldBounds.height));
+	boundShape.setPosition(50.f, 50.f);
+	boundShape.setOutlineColor(sf::Color::Yellow);
+	boundShape.setOutlineThickness(4.f);
+	boundShape.setFillColor(sf::Color::Transparent);
 
-	// Prepare the view
-	//mWorldView.setCenter(mSpawnPosition);
+	buildScene();
 }
 
-void World::update(sf::Time dt)
-{
-	// Scroll the world, reset player velocity
-	//mWorldView.move(0.f, mScrollSpeed * dt.asSeconds());
-	//mPlayerAircraft->setVelocity(0.f, 0.f);
+void World::update(sf::Time dt) {
 
 	// Forward commands to scene graph, adapt velocity (scrolling, diagonal correction)
 	//while (!mCommandQueue.isEmpty())
 	//	mSceneGraph.onCommand(mCommandQueue.pop(), dt);
 	//adaptPlayerVelocity();
 
-	// Regular update step, adapt position (correct if outside view)
 	mSceneGraph.update(dt);
 	sf::Vector2f mouse_pos{ sf::Mouse::getPosition(mWindow) }; // -mWindow.getPosition() };
 	red.setPosition(mouse_pos);
 	red.update(dt);
-	//adaptPlayerPosition();
+	// check red collision!
+	
+	// update blues and check theirs collisions!
+	for (auto &it : blues) {
+		it->move(it->getVelocity().x * dt.asSeconds(), it->getVelocity().y * dt.asSeconds());
+	}
 }
 
-void World::draw()
-{
-//	mWindow.setView(mWorldView);
+void World::draw() {
+	mWindow.draw(boundShape);
 	mWindow.draw(mSceneGraph);
 	mWindow.draw(red);
 }
@@ -64,9 +61,7 @@ void World::draw()
 //	mTextures.load(Textures::Desert, "Media/Textures/Desert.png");
 //}
 
-void World::buildScene()
-{
-	// Initialize the different layers
+void World::buildScene() {
 	for (std::size_t i = 0; i < LayerCount; ++i) {
 		SceneNode::Ptr layer(new SceneNode());
 		mSceneLayers[i] = layer.get();
@@ -83,20 +78,20 @@ void World::buildScene()
 	//backgroundSprite->setPosition(mWorldBounds.left, mWorldBounds.top);
 	//mSceneLayers[Background]->attachChild(std::move(backgroundSprite));
 
-	// Add player's aircraft
-	//std::unique_ptr<Aircraft> leader(new Aircraft(Aircraft::Eagle, mTextures));
-	//mPlayerAircraft = leader.get();
-	//mPlayerAircraft->setPosition(mSpawnPosition);
-	//mSceneLayers[Air]->attachChild(std::move(leader));
-	std::unique_ptr<BlueBox> box1(new BlueBox(mTextures, sf::Vector2f(200.f, 200.f)));
-	box1->setPosition(500.f, 500.f);
-	mSceneLayers[Air]->attachChild(std::move(box1));
-
-	std::unique_ptr<BlueBox> box2(new BlueBox(mTextures, sf::Vector2f(200.f, 200.f)));
-	box2->setPosition(400.f, 400.f);
-	mSceneLayers[Air]->attachChild(std::move(box2));
-
 	red.setPosition(sf::Vector2f(100.f, 100.f));
+	blues[0] = new BlueBox(mTextures, sf::Vector2f(100.f, 100.f));
+	blues[0]->setPosition(100.f, 100.f);
+	blues[1] = new BlueBox(mTextures, sf::Vector2f(100.f, 80.f));
+	blues[1]->setPosition(500.f, 100.f);
+	blues[2] = new BlueBox(mTextures, sf::Vector2f(50.f, 100.f));
+	blues[2]->setPosition(100.f, 500.f);
+	blues[3] = new BlueBox(mTextures, sf::Vector2f(170.f, 34.f));
+	blues[3]->setPosition(500.f, 500.f);
+	for (auto& it : blues) {
+		it->setVelocity(100 - std::rand() % 200, 100 - std::rand() % 200);
+		std::unique_ptr<BlueBox> box(it);
+		mSceneGraph.attachChild(std::move(box));
+	};
 }
 
 //void World::adaptPlayerPosition()

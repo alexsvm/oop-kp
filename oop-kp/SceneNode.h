@@ -27,6 +27,7 @@ public:
 
 	sf::Vector2f getWorldPosition() const;
 	sf::Transform getWorldTransform() const;
+	virtual sf::FloatRect getBounds() const;
 
 	//void onCommand(const Command& command, sf::Time dt);
 	virtual unsigned getCategory() const;

@@ -11,12 +11,12 @@
 #include "StateGame.h"
 
 //#include "sfGUI.h"
-#include "items.h"
-#include "nomads.h"
+//#include "items.h"
+//#include "nomads.h"
 #include "ColorConsole.h"
 #include "HUD.h"
 
-
+using namespace std;
 
 class Application {
 
@@ -42,8 +42,8 @@ private:
 
 
 	//sfGUI sfgui;
-	Shapes shapes;
-	nomad nomad1;
+	//Shapes shapes;
+	//nomad nomad1;
 
 	//float _mx, _my;
 	

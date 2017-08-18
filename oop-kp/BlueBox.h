@@ -14,6 +14,7 @@ public:
 
 	virtual void drawCurrent(sf::RenderTarget& target, sf::RenderStates states) const;
 	virtual void updateCurrent(sf::Time dt);
+	virtual sf::FloatRect getBounds() const;
 	//virtual unsigned int	getCategory() const;
 
 private:

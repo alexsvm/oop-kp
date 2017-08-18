@@ -161,8 +161,6 @@
     <ClInclude Include="Entity.h" />
     <ClInclude Include="FrameClock.h" />
     <ClInclude Include="HUD.h" />
-    <ClInclude Include="items.h" />
-    <ClInclude Include="nomads.h" />
     <ClInclude Include="RedBox.h" />
     <ClInclude Include="ResourceManager.h" />
     <ClInclude Include="SceneNode.h" />
@@ -180,7 +178,6 @@
     <ClCompile Include="collision.cpp" />
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="HUD.cpp" />
-    <ClCompile Include="items.cpp" />
     <ClCompile Include="oop-kp.cpp" />
     <ClCompile Include="RedBox.cpp" />
     <ClCompile Include="SceneNode.cpp" />

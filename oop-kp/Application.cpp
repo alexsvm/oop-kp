@@ -3,16 +3,16 @@
 
 const sf::Time Application::TimePerFrame = sf::seconds(1.f / 60.f);
 
-Application::Application() : nomad1(100, 100, 200), Textures(), Fonts(), mStateStack(State::Context(Window, Textures, Fonts))
+Application::Application() : /*nomad1(100, 100, 200),*/ Textures(), Fonts(), mStateStack(State::Context(Window, Textures, Fonts))
 {
 	srand(std::time(NULL));
 
 	settings.antialiasingLevel = 8;
-	Window.create(sf::VideoMode(1024, 768), "Hello world!", sf::Style::Default, settings); // Create SFML's window.
+	Window.create(sf::VideoMode(1024, 768), "Hello world!", sf::Style::Close || sf::Style::Titlebar, settings); // Create SFML's window.
 	Window.setKeyRepeatEnabled(false);
 
 	//sfgui._shapes = &shapes;
-	nomad1.Start();
+	//nomad1.Start();
 
 	Window.resetGLStates();
 
@@ -22,9 +22,9 @@ Application::Application() : nomad1(100, 100, 200), Textures(), Fonts(), mStateS
 	std::cout << "stencil bits:" << settings.stencilBits << std::endl;
 	std::cout << "antialiasing level:" << settings.antialiasingLevel << std::endl;
 	std::cout << "version:" << settings.majorVersion << "." << settings.minorVersion << std::endl;
-	std::cout << cyan << "cyan " << magenta << "magenta " << yellow << "yellow " << grey << "grey " << endl;
-	std::cout << light_cyan << "light_cyan " << light_magenta << "light_magenta " << light_yellow << "light_yellow " << white << "white" << endl;
-	std::cout << light_red << " red " << on_blue << " on blue " << grey << on_black << "back in black " << endl;
+	std::cout << cyan << "cyan " << magenta << "magenta " << yellow << "yellow " << grey << "grey " << std::endl;
+	std::cout << light_cyan << "light_cyan " << light_magenta << "light_magenta " << light_yellow << "light_yellow " << white << "white" << std::endl;
+	std::cout << light_red << " red " << on_blue << " on blue " << grey << on_black << "back in black " << std::endl;
 
 	// Loading resources:
 	Fonts.load(Fonts::Main, "fonts\\hermes.ttf"); 
@@ -66,8 +66,8 @@ void Application::processInput() {
 		mStateStack.handleEvent(event);
 
 		//sfgui.HandleEvent(event);
-		shapes.HandleEvent(event, Window);
-		nomad1.HandleEvent(event);
+		//shapes.HandleEvent(event, Window);
+		//nomad1.HandleEvent(event);
 		//
 		if (event.type == sf::Event::Closed) { // If window is about to be closed, leave program.
 			Window.close();
@@ -133,8 +133,8 @@ void Application::update(sf::Time dt) {
 	mStateStack.update(dt);
 
 	//sfgui.Update(dt);
-	shapes.Update(dt);
-	nomad1.Update(dt);
+	//shapes.Update(dt);
+	//nomad1.Update(dt);
 }
 
 void Application::render() {
@@ -142,8 +142,8 @@ void Application::render() {
 
 	mStateStack.draw();
 
-	shapes.Render(Window);
-	nomad1.Render(Window);
+	//shapes.Render(Window);
+	//nomad1.Render(Window);
 	//sfgui.Render(Window);
 
 	mHUD->end_update();

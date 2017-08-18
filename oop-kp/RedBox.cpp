@@ -9,7 +9,7 @@ RedBox::RedBox(sf::Vector2f size) {
 	centerOrigin(mShape);
 	setOrigin(std::floor(size.x / 2.f), std::floor(size.y / 2.f));
 	mShape.setSize(size);
-	mShape.setOutlineThickness(3.f);
+	mShape.setOutlineThickness(0.f);
 	mShape.setOutlineColor(sf::Color::Red);
 	mShape.setFillColor(sf::Color::Red);
 }
@@ -21,4 +21,8 @@ void RedBox::drawCurrent(sf::RenderTarget & target, sf::RenderStates states) con
 void RedBox::updateCurrent(sf::Time dt) {
 	sf::Vector2f pos = getPosition() - mShape.getSize() / 2.f;
 	mShape.setPosition(pos);
+}
+
+sf::FloatRect RedBox::getBounds() const {
+	return sf::FloatRect(mShape.getPosition(), mShape.getSize());
 }

@@ -12,6 +12,7 @@
 #include <SFML/System/NonCopyable.hpp>
 #include <SFML/Graphics/View.hpp>
 #include <SFML/Graphics/Texture.hpp>
+#include <SFML/Graphics/RectangleShape.hpp>
 
 #include <array>
 #include <queue>
@@ -26,23 +27,21 @@ namespace sf
 class World : private sf::NonCopyable
 {
 public:
-	explicit							World(sf::RenderWindow& window);
-	void								update(sf::Time dt);
-	void								draw();
-
-	//CommandQueue&						getCommandQueue();
-
-
-private:
-	//void								loadTextures();
-	void								buildScene();
-	//void								adaptPlayerPosition();
-	//void								adaptPlayerVelocity();
+	explicit World(sf::RenderWindow& window);
+	void update(sf::Time dt);
+	void draw();
+	//CommandQueue&		getCommandQueue();
 
 
 private:
-	enum Layer
-	{
+	//void				loadTextures();
+	void buildScene();
+	//void				adaptPlayerPosition();
+	//void				adaptPlayerVelocity();
+	bool Intersect(SceneNode const &nodeA, SceneNode const &nodeB);
+
+private:
+	enum Layer 	{
 		Background,
 		Air,
 		LayerCount
@@ -50,20 +49,18 @@ private:
 
 
 private:
-	sf::RenderWindow&					mWindow;
-	sf::View							mWorldView;
-	TextureHolder						mTextures;
+	sf::RenderWindow& mWindow;
+	sf::View mWorldView;
+	TextureHolder mTextures;
 
-	SceneNode							mSceneGraph;
-	std::array<SceneNode*, LayerCount>	mSceneLayers;
-	//CommandQueue						mCommandQueue;
+	SceneNode mSceneGraph;
+	std::array<SceneNode*, LayerCount> mSceneLayers;
+	//CommandQueue mCommandQueue;
 
-	sf::FloatRect						mWorldBounds;
-	//sf::Vector2f						mSpawnPosition;
-	//float								mScrollSpeed;
-	//Aircraft*							mPlayerAircraft;
-
-	RedBox								red;
+	sf::FloatRect mWorldBounds;
+	sf::RectangleShape boundShape;
+	RedBox red;
+	std::array<BlueBox*, 4> blues;
 
 };
 
