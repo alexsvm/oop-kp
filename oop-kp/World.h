@@ -4,6 +4,8 @@
 #include "SceneNode.h"
 //#include "SpriteNode.h"
 #include "BlueBox.h"
+#include "RedBox.h"
+
 //#include <Book/CommandQueue.hpp>
 //#include <Book/Command.hpp>
 
@@ -60,5 +62,8 @@ private:
 	//sf::Vector2f						mSpawnPosition;
 	//float								mScrollSpeed;
 	//Aircraft*							mPlayerAircraft;
+
+	RedBox								red;
+
 };
 

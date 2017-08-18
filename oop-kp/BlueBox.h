@@ -10,9 +10,10 @@
 class BlueBox : public Entity {
 
 public:
-	BlueBox(const TextureHolder& textures);
+	BlueBox(const TextureHolder& textures, sf::Vector2f size);
 
 	virtual void drawCurrent(sf::RenderTarget& target, sf::RenderStates states) const;
+	virtual void updateCurrent(sf::Time dt);
 	//virtual unsigned int	getCategory() const;
 
 private:

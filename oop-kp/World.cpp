@@ -1,6 +1,7 @@
 #include "World.h"
 
 #include <SFML/Graphics/RenderWindow.hpp>
+#include <SFML/Window/Mouse.hpp>
 
 #include <algorithm>
 #include <cmath>
@@ -16,6 +17,7 @@ World::World(sf::RenderWindow& window)
 	//, mSpawnPosition(mWorldView.getSize().x / 2.f, mWorldBounds.height - mWorldView.getSize().y / 2.f)
 	//, mScrollSpeed(-50.f)
 	//, mPlayerAircraft(nullptr)
+	, red(sf::Vector2f(100, 100))
 {
 	//loadTextures();
 	buildScene();
@@ -37,13 +39,17 @@ void World::update(sf::Time dt)
 
 	// Regular update step, adapt position (correct if outside view)
 	mSceneGraph.update(dt);
+	sf::Vector2f mouse_pos{ sf::Mouse::getPosition(mWindow) }; // -mWindow.getPosition() };
+	red.setPosition(mouse_pos);
+	red.update(dt);
 	//adaptPlayerPosition();
 }
 
 void World::draw()
 {
-	mWindow.setView(mWorldView);
+//	mWindow.setView(mWorldView);
 	mWindow.draw(mSceneGraph);
+	mWindow.draw(red);
 }
 
 //CommandQueue& World::getCommandQueue()
@@ -82,9 +88,15 @@ void World::buildScene()
 	//mPlayerAircraft = leader.get();
 	//mPlayerAircraft->setPosition(mSpawnPosition);
 	//mSceneLayers[Air]->attachChild(std::move(leader));
-	std::unique_ptr<BlueBox> box1(new BlueBox(mTextures));
-	box1->setPosition(300.f, 300.f);
+	std::unique_ptr<BlueBox> box1(new BlueBox(mTextures, sf::Vector2f(200.f, 200.f)));
+	box1->setPosition(500.f, 500.f);
 	mSceneLayers[Air]->attachChild(std::move(box1));
+
+	std::unique_ptr<BlueBox> box2(new BlueBox(mTextures, sf::Vector2f(200.f, 200.f)));
+	box2->setPosition(400.f, 400.f);
+	mSceneLayers[Air]->attachChild(std::move(box2));
+
+	red.setPosition(sf::Vector2f(100.f, 100.f));
 }
 
 //void World::adaptPlayerPosition()

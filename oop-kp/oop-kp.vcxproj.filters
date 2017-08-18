@@ -63,6 +63,9 @@
     <ClCompile Include="StateGame.cpp">
       <Filter>Файлы исходного кода</Filter>
     </ClCompile>
+    <ClCompile Include="RedBox.cpp">
+      <Filter>Файлы исходного кода</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ClockHUD.h">
@@ -123,6 +126,9 @@
       <Filter>Заголовочные файлы</Filter>
     </ClInclude>
     <ClInclude Include="StateGame.h">
+      <Filter>Заголовочные файлы</Filter>
+    </ClInclude>
+    <ClInclude Include="RedBox.h">
       <Filter>Заголовочные файлы</Filter>
     </ClInclude>
   </ItemGroup>
