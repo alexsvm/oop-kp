@@ -9,9 +9,10 @@
 //#include <SFML/Graphics/Text.hpp>
 
 
-class StateGame : public State
-{
+class StateGame : public State {
+
 public:
+
 	StateGame(StateStack& stack, Context context);
 
 	virtual void		draw();
@@ -20,6 +21,8 @@ public:
 
 
 private:
+
+
 	World				mWorld;
 	//Player&				mPlayer;
 };

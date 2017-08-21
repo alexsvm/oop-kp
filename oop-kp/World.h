@@ -27,11 +27,19 @@ namespace sf
 class World : private sf::NonCopyable
 {
 public:
+	enum State {
+		Waiting,
+		Playing,
+		Stopped
+	};
+
 	explicit World(sf::RenderWindow& window);
 	void update(sf::Time dt);
 	void draw();
 	//CommandQueue&		getCommandQueue();
 
+	State getState();
+	void setState(State state);
 
 private:
 	//void				loadTextures();
@@ -49,6 +57,8 @@ private:
 
 
 private:
+	State mState;
+
 	sf::RenderWindow& mWindow;
 	sf::View mWorldView;
 	TextureHolder mTextures;

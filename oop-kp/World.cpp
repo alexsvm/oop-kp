@@ -14,6 +14,7 @@ World::World(sf::RenderWindow& window)
 	, mSceneLayers()
 	, mWorldBounds(50.f, 50.f, mWorldView.getSize().x - 100, mWorldView.getSize().y - 100)
 	, red(sf::Vector2f(68.f, 68.f))
+	, mState(World::Waiting)
 {
 	boundShape.setSize(sf::Vector2f(mWorldBounds.width, mWorldBounds.height));
 	boundShape.setPosition(50.f, 50.f);
@@ -25,16 +26,20 @@ World::World(sf::RenderWindow& window)
 }
 
 void World::update(sf::Time dt) {
+	if (mState != World::Playing)
+		return;
 
 	// Forward commands to scene graph, adapt velocity (scrolling, diagonal correction)
 	//while (!mCommandQueue.isEmpty())
 	//	mSceneGraph.onCommand(mCommandQueue.pop(), dt);
-	//adaptPlayerVelocity();
 
 	mSceneGraph.update(dt);
+
+	// update RED:
 	sf::Vector2f mouse_pos{ sf::Mouse::getPosition(mWindow) }; // -mWindow.getPosition() };
 	red.setPosition(mouse_pos);
 	red.update(dt);
+
 	// check red collision!
 	
 	// update blues and check theirs collisions with world bounds!
@@ -64,6 +69,14 @@ void World::draw() {
 	mWindow.draw(boundShape);
 	mWindow.draw(mSceneGraph);
 	mWindow.draw(red);
+}
+
+World::State World::getState() {
+	return mState;
+}
+
+void World::setState(State state) {
+	mState = state;
 }
 
 //CommandQueue& World::getCommandQueue()

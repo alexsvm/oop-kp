@@ -1,7 +1,7 @@
 #include "Application.h"
 #include "StateTitle.h"
 
-const sf::Time Application::TimePerFrame = sf::seconds(1.f / 60.f);
+const sf::Time Application::TimePerFrame = sf::seconds(1.f / 120.f);
 
 Application::Application() : /*nomad1(100, 100, 200),*/ Textures(), Fonts(), mStateStack(State::Context(Window, Textures, Fonts))
 {
