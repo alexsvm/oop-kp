@@ -11,9 +11,6 @@ Application::Application() : /*nomad1(100, 100, 200),*/ Textures(), Fonts(), mSt
 	Window.create(sf::VideoMode(1024, 768), "Hello world!", sf::Style::Close || sf::Style::Titlebar, settings); // Create SFML's window.
 	Window.setKeyRepeatEnabled(false);
 
-	//sfgui._shapes = &shapes;
-	//nomad1.Start();
-
 	Window.resetGLStates();
 
 	// Print window settings:
@@ -54,9 +51,10 @@ void Application::run() {
 
 			if (mStateStack.isEmpty())
 				Window.close();
-		}
+		} // while (timeSinceLastUpdate > TimePerFrame) {
+
 		render();
-	}
+	} // while (Window.isOpen()) {
 }
 
 void Application::processInput() {
@@ -65,14 +63,10 @@ void Application::processInput() {
 	while (Window.pollEvent(event)) { // Event processing.
 		mStateStack.handleEvent(event);
 
-		//sfgui.HandleEvent(event);
-		//shapes.HandleEvent(event, Window);
-		//nomad1.HandleEvent(event);
-		//
 		if (event.type == sf::Event::Closed) { // If window is about to be closed, leave program.
 			Window.close();
 		}
-		//
+
 		if (event.type == sf::Event::Resized)
 		{
 			sf::FloatRect visibleArea(0, 0, event.size.width, event.size.height);
@@ -125,26 +119,18 @@ void Application::processInput() {
 		//		_my = event.mouseMove.y;
 		//	}
 		//} // <=MouseMoved
-	} // <= Event processing
+	} // while (Window.pollEvent(event)) { // Event processing.
 
 }
 
 void Application::update(sf::Time dt) {
 	mStateStack.update(dt);
-
-	//sfgui.Update(dt);
-	//shapes.Update(dt);
-	//nomad1.Update(dt);
 }
 
 void Application::render() {
 	Window.clear();
 
 	mStateStack.draw();
-
-	//shapes.Render(Window);
-	//nomad1.Render(Window);
-	//sfgui.Render(Window);
 
 	mHUD->end_update();
 	mHUD->draw();
