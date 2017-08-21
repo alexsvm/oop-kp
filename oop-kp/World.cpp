@@ -112,6 +112,7 @@ void World::buildScene() {
 	};
 }
 
+
 //void World::adaptPlayerPosition()
 //{
 //	// Keep player's position inside the screen bounds, at least borderDistance units from the border
