@@ -22,6 +22,7 @@
 namespace sf
 {
 	class RenderWindow;
+	class Event;
 }
 
 class World : private sf::NonCopyable
@@ -36,10 +37,13 @@ public:
 	explicit World(sf::RenderWindow& window);
 	void update(sf::Time dt);
 	void draw();
+	virtual bool handleEvent(const sf::Event& event);
 	//CommandQueue&		getCommandQueue();
 
 	State getState();
 	void setState(State state);
+
+	void reset();
 
 private:
 	//void				loadTextures();

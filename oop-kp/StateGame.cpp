@@ -33,5 +33,7 @@ bool StateGame::handleEvent(const sf::Event& event) {
 		requestStackPush(States::Menu);
 	}
 
+	mWorld.handleEvent(event);
+
 	return true;
 }

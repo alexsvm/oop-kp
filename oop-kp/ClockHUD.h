@@ -62,20 +62,21 @@ private:
 		return os.str();
 	}
 
+
 	Stats_t build() const
 	{
 		const int count = 10;
 		const Stat stats[count] = {
-			{ sf::Color::Yellow, format("Time",  "(sec)", m_clock->getTotalFrameTime().asSeconds()) },
-			{ sf::Color::White,  format("Frame", "",      m_clock->getTotalFrameCount()) },
-			{ sf::Color::Green,  format("FPS",   "",      m_clock->getFramesPerSecond()) },
-			{ sf::Color::Green,  format("min.",  "",      m_clock->getMinFramesPerSecond()) },
-			{ sf::Color::Green,  format("avg.",  "",      m_clock->getAverageFramesPerSecond()) },
-			{ sf::Color::Green,  format("max.",  "",      m_clock->getMaxFramesPerSecond()) },
-			{ sf::Color::Cyan,   format("Delta", "(ms)",  m_clock->getLastFrameTime().asMilliseconds()) },
-			{ sf::Color::Cyan,   format("min.",  "(ms)",  m_clock->getMinFrameTime().asMilliseconds()) },
-			{ sf::Color::Cyan,   format("avg.",  "(ms)",  m_clock->getAverageFrameTime().asMilliseconds()) },
-			{ sf::Color::Cyan,   format("max.",  "(ms)",  m_clock->getMaxtFrameTime().asMilliseconds()) }
+			{ sf::Color{ 255,255,  0,128 }, format("Time",  "(sec)", m_clock->getTotalFrameTime().asSeconds()) },	// Yellow
+			{ sf::Color{ 255,255,255,128 },  format("Frame", "",      m_clock->getTotalFrameCount()) },				// White
+			{ sf::Color{ 255,  0,  0,128 },  format("FPS",   "",      m_clock->getFramesPerSecond()) },				// Green
+			{ sf::Color{ 255,  0,  0,128 },  format("min.",  "",      m_clock->getMinFramesPerSecond()) },			// Green
+			{ sf::Color{ 255,  0,  0,128 },  format("avg.",  "",      m_clock->getAverageFramesPerSecond()) },					// Green
+			{ sf::Color{ 255,  0,  0,128 },  format("max.",  "",      m_clock->getMaxFramesPerSecond()) },						// Cyan
+			{ sf::Color{   0,255,255,128 },   format("Delta", "(ms)",  m_clock->getLastFrameTime().asMilliseconds()) },			// Cyan
+			{ sf::Color{   0,255,255,128 },   format("min.",  "(ms)",  m_clock->getMinFrameTime().asMilliseconds()) },			// Cyan
+			{ sf::Color{   0,255,255,128 },   format("avg.",  "(ms)",  m_clock->getAverageFrameTime().asMilliseconds()) },		// Cyan
+			{ sf::Color{   0,255,255,128 },   format("max.",  "(ms)",  m_clock->getMaxtFrameTime().asMilliseconds()) }			// Cyan
 		};
 		return Stats_t(&stats[0], &stats[0] + count);
 	}

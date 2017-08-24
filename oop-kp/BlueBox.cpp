@@ -20,6 +20,7 @@
 
 BlueBox::BlueBox(const TextureHolder& textures, sf::Vector2f size) { // mSprite(textures.get(Textures::BlueBox)) {
 	centerOrigin(mShape);
+	setOrigin(std::floor(size.x / 2.f), std::floor(size.y / 2.f));
 	mShape.setSize(size);
 	mShape.setOutlineThickness(0.f);
 	mShape.setOutlineColor(sf::Color::Blue);

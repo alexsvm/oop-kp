@@ -2,6 +2,7 @@
 
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/Window/Mouse.hpp>
+#include <SFML/Window/Event.hpp>
 
 #include <algorithm>
 #include <cmath>
@@ -26,8 +27,7 @@ World::World(sf::RenderWindow& window)
 }
 
 void World::update(sf::Time dt) {
-	if (mState != World::Playing)
-		return;
+	
 
 	// Forward commands to scene graph, adapt velocity (scrolling, diagonal correction)
 	//while (!mCommandQueue.isEmpty())
@@ -35,13 +35,18 @@ void World::update(sf::Time dt) {
 
 	mSceneGraph.update(dt);
 
+	if (mState != World::Playing)
+		return;
 	// update RED:
 	sf::Vector2f mouse_pos{ sf::Mouse::getPosition(mWindow) }; // -mWindow.getPosition() };
 	red.setPosition(mouse_pos);
 	red.update(dt);
+	auto RB = red.getBounds();
+	sf::Vector2f lt = { RB.left, RB.top };
+	sf::Vector2f lb = { RB.left, RB.top + RB.height};
+	sf::Vector2f rt = { RB.left + RB.width, RB.top };
+	sf::Vector2f rb = { RB.left + RB.width, RB.top + RB.height };
 
-	// check red collision!
-	
 	// update blues and check theirs collisions with world bounds!
 	for (auto &it : blues) {
 		auto itemVelocity = it->getVelocity();
@@ -62,7 +67,12 @@ void World::update(sf::Time dt) {
 		itemVelocity.y >= 0 ? itemVelocity.y += it->getAccelleration() * dt.asSeconds() : itemVelocity.y -= it->getAccelleration() * dt.asSeconds();
 		it->setVelocity(itemVelocity);
 		it->move(deltaX, deltaY);
-	}
+		if (it->getBounds().contains(lt) || it->getBounds().contains(lb) || it->getBounds().contains(rt) || it->getBounds().contains(rb))
+			mState = World::Stopped;
+	} // for (auto &it : blues) {
+
+
+	
 }
 
 void World::draw() {
@@ -71,12 +81,47 @@ void World::draw() {
 	mWindow.draw(red);
 }
 
+bool World::handleEvent(const sf::Event & event) {
+	if (event.type == sf::Event::MouseButtonPressed) {
+		if (event.mouseButton.button == sf::Mouse::Left) {
+			if (mState == World::Waiting) {
+				sf::Vector2f mouse_pos{ sf::Mouse::getPosition(mWindow) };
+				if (red.getBounds().contains(mouse_pos))
+					mState = World::Playing;
+			}
+		}
+	} // <= MouseButtonPressed
+	if (event.type == sf::Event::MouseButtonReleased) {
+		if (event.mouseButton.button == sf::Mouse::Left) {
+			;
+		}
+	} // <=MouseButtonReleased
+
+	return true;
+}
+
 World::State World::getState() {
 	return mState;
 }
 
 void World::setState(State state) {
 	mState = state;
+}
+
+void World::reset() {
+	mState = World::Waiting;
+	red.setPosition(sf::Vector2f((mWorldBounds.left + mWorldBounds.width) / 2.f, (mWorldBounds.top + mWorldBounds.height) / 2.f));
+	red.update(sf::Time::Zero);
+	#define BDist 100.f
+	blues[0]->setPosition(mWorldBounds.left + BDist, mWorldBounds.top + BDist);
+	blues[1]->setPosition(mWorldBounds.left + mWorldBounds.width - BDist * 2, mWorldBounds.top + BDist);
+	blues[2]->setPosition(mWorldBounds.left + BDist, mWorldBounds.top + mWorldBounds.height - BDist * 2);
+	blues[3]->setPosition(mWorldBounds.left + mWorldBounds.width - BDist * 2, mWorldBounds.top + mWorldBounds.height - BDist * 2);
+	for (auto& it : blues) {
+		it->setVelocity(100 - std::rand() % 200, 100 - std::rand() % 200);
+		it->setAccelleraion(100);
+	};
+	mSceneGraph.update(sf::Time::Zero);
 }
 
 //CommandQueue& World::getCommandQueue()
@@ -108,18 +153,19 @@ void World::buildScene() {
 	//backgroundSprite->setPosition(mWorldBounds.left, mWorldBounds.top);
 	//mSceneLayers[Background]->attachChild(std::move(backgroundSprite));
 
-	red.setPosition(sf::Vector2f(100.f, 100.f));
+	//red.setPosition(sf::Vector2f(100.f, 100.f));
 	blues[0] = new BlueBox(mTextures, sf::Vector2f(100.f, 100.f));
-	blues[0]->setPosition(100.f, 100.f);
+	//blues[0]->setPosition(100.f, 100.f);
 	blues[1] = new BlueBox(mTextures, sf::Vector2f(100.f, 80.f));
-	blues[1]->setPosition(500.f, 100.f);
+	//blues[1]->setPosition(500.f, 100.f);
 	blues[2] = new BlueBox(mTextures, sf::Vector2f(50.f, 100.f));
-	blues[2]->setPosition(100.f, 500.f);
+	//blues[2]->setPosition(100.f, 500.f);
 	blues[3] = new BlueBox(mTextures, sf::Vector2f(170.f, 34.f));
-	blues[3]->setPosition(500.f, 500.f);
+	//blues[3]->setPosition(500.f, 500.f);
+	reset();
 	for (auto& it : blues) {
-		it->setVelocity(100 - std::rand() % 200, 100 - std::rand() % 200);
-		it->setAccelleraion(100);
+		//it->setVelocity(100 - std::rand() % 200, 100 - std::rand() % 200);
+		//it->setAccelleraion(100);
 		std::unique_ptr<BlueBox> box(it);
 		mSceneGraph.attachChild(std::move(box));
 	};
