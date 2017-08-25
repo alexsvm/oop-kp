@@ -3,7 +3,7 @@
 
 const sf::Time Application::TimePerFrame = sf::seconds(1.f / 120.f);
 
-Application::Application() : /*nomad1(100, 100, 200),*/ Textures(), Fonts(), mStateStack(State::Context(Window, Textures, Fonts))
+Application::Application() : /*nomad1(100, 100, 200),*/ Textures(), Fonts(), mGUI(Fonts), mStateStack(State::Context(Window, Textures, Fonts, mGUI))
 {
 	srand(std::time(NULL));
 
@@ -29,7 +29,9 @@ Application::Application() : /*nomad1(100, 100, 200),*/ Textures(), Fonts(), mSt
 	Fonts.load(Fonts::HUD, "fonts\\hermes.ttf");
 	Textures.load(Textures::TitleScreen, "textures\\TitleScreen.png");
 
-	mHUD = new HUD(State::Context{ Window, Textures, Fonts });
+	mGUI.init();
+
+	mHUD = new HUD(State::Context{ Window, Textures, Fonts, mGUI });
 
 	registerStates();
 	mStateStack.pushState(States::Title);

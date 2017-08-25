@@ -1,6 +1,7 @@
 #pragma once
 
 #include "ResourceManager.h"
+#include "GUI.h"
 #include <SFML/System/Time.hpp>
 #include <SFML/Window/Event.hpp>
 
@@ -32,12 +33,13 @@ public:
 	typedef std::unique_ptr<State> Ptr;
 
 	struct Context {
-		Context(sf::RenderWindow& window, TextureHolder& textures, FontHolder& fonts); // , Player& player);
+		Context(sf::RenderWindow& window, TextureHolder& textures, FontHolder& fonts, GUI& gui); // , Player& player);
 
 		sf::RenderWindow*	window;
 		TextureHolder*		textures;
 		FontHolder*			fonts;
-		Player*				player;
+		GUI*				gui;
+		//Player*				player;
 	};
 
 public:

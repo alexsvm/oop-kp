@@ -9,7 +9,7 @@
 #include "StateStack.h"
 #include "StateMenu.h"
 #include "StateGame.h"
-
+#include "GUI.h"
 //#include "sfGUI.h"
 //#include "items.h"
 //#include "nomads.h"
@@ -39,6 +39,8 @@ private:
 
 	TextureHolder Textures;
 	FontHolder Fonts;
+
+	GUI	mGUI;
 
 
 	//sfGUI sfgui;

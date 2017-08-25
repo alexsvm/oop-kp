@@ -6,34 +6,34 @@
 
 StateMenu::StateMenu(StateStack & stack, Context context) : State(stack, context) {
 
-	std::shared_ptr<const sf::Font> my_font = std::make_shared<const sf::Font>(context.fonts->get(Fonts::Menu));
-	sfgDesktop.GetEngine().GetResourceManager().AddFont("menu_font", my_font);
+	//std::shared_ptr<const sf::Font> my_font = std::make_shared<const sf::Font>(context.fonts->get(Fonts::Menu));
+	//sfgDesktop.GetEngine().GetResourceManager().AddFont("menu_font", my_font);
 	//sfgDesktop.SetProperty("Button", "FontName", "menu_font" );
 	//sfgDesktop.SetProperty("Button", "FontSize", 48.f);
 	//sfgDesktop.SetProperty("Button", "Color", sf::Color::Yellow);
 	//sfgDesktop.SetProperty("#btn_exit", "Color", sf::Color::Red);
-	sfgDesktop.SetProperties(
-		//	/*"Window#second_window > Box > Label {"
-		//	"	FontName: custom_font;"
-		//	"	FontSize: 18;"
-		//	"}"*/
-		"#main_window {"
-		" Color: #0F000F0F;"
-		"}"
-		"Button {"
-			" Color: #FF0000FF;"
-			" FontName: menu_font;"
-			" FontSize: 32;"
-			"}"
-		"#btn_play {"
-			" Color: #FFFF00FF;"
-			//"	FontName: \\fonts\\hermes.ttf;"
-			" FontSize: 48;"
-			"}"
-		"Box {"
-			" Color: #000F0F0F;"
-		"}"
-	);
+	//sfgDesktop.SetProperties(
+	//	//	/*"Window#second_window > Box > Label {"
+	//	//	"	FontName: custom_font;"
+	//	//	"	FontSize: 18;"
+	//	//	"}"*/
+	//	"#main_window {"
+	//	" Color: #0F000F0F;"
+	//	"}"
+	//	"Button {"
+	//		" Color: #FF0000FF;"
+	//		" FontName: menu_font;"
+	//		" FontSize: 32;"
+	//		"}"
+	//	"#btn_play {"
+	//		" Color: #FFFF00FF;"
+	//		//"	FontName: \\fonts\\hermes.ttf;"
+	//		" FontSize: 48;"
+	//		"}"
+	//	"Box {"
+	//		" Color: #000F0F0F;"
+	//	"}"
+	//);
 
 
 	btnPlay = sfg::Button::Create(" P L A Y ");
@@ -62,20 +62,25 @@ StateMenu::StateMenu(StateStack & stack, Context context) : State(stack, context
 	
 	//sfgDesktop.SetProperty("Button#btn_play", "FontSize", 96.f);
 	
-	sfgDesktop.Add(sfgWindow);
+	getContext().gui->sfgDesktop.Add(sfgWindow);
+	//sfgDesktop.Add(sfgWindow);
+
 }
 
 void StateMenu::draw() {
 	sf::RenderWindow& window = *getContext().window;
-	sfGUI.Display(window);
+	getContext().gui->sfGUI.Display(window);
+	//sfGUI.Display(window);
 }
 
 bool StateMenu::update(sf::Time dt) {
-	sfgDesktop.Update(dt.asSeconds());
+	getContext().gui->sfgDesktop.Update(dt.asSeconds());
+	//sfgDesktop.Update(dt.asSeconds());
 	return false;
 }
 
 bool StateMenu::handleEvent(const sf::Event & event) {
-	sfgDesktop.HandleEvent(event);
+	getContext().gui->sfgDesktop.HandleEvent(event);
+	//sfgDesktop.HandleEvent(event);
 	return false;
 }

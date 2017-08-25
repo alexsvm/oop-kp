@@ -13,9 +13,9 @@ public:
 	virtual bool handleEvent(const sf::Event& event);
 
 private:
-	sfg::SFGUI sfGUI;
+	//sfg::SFGUI sfGUI;
 	sfg::Window::Ptr sfgWindow;
-	sfg::Desktop sfgDesktop;
+	//sfg::Desktop sfgDesktop;
 
 	sfg::Button::Ptr btnPlay;
 	sfg::Button::Ptr btnExit;

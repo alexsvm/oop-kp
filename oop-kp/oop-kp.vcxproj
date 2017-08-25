@@ -160,6 +160,7 @@
     <ClInclude Include="ColorConsole.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="FrameClock.h" />
+    <ClInclude Include="GUI.h" />
     <ClInclude Include="HUD.h" />
     <ClInclude Include="RedBox.h" />
     <ClInclude Include="ResourceManager.h" />
