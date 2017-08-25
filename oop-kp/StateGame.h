@@ -6,7 +6,7 @@
 //#include <Book/Player.hpp>
 
 //#include <SFML/Graphics/Sprite.hpp>
-//#include <SFML/Graphics/Text.hpp>
+#include <SFML/Graphics/Text.hpp>
 
 
 class StateGame : public State {
@@ -21,7 +21,7 @@ public:
 
 
 private:
-
+	sf::Text mScoreText;
 
 	World				mWorld;
 	//Player&				mPlayer;

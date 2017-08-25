@@ -16,6 +16,8 @@ World::World(sf::RenderWindow& window)
 	, mWorldBounds(50.f, 50.f, mWorldView.getSize().x - 100, mWorldView.getSize().y - 100)
 	, red(sf::Vector2f(68.f, 68.f))
 	, mState(World::Waiting)
+	, mScoreBest(0.f)
+	, mScoreCurrent(0.f)
 {
 	boundShape.setSize(sf::Vector2f(mWorldBounds.width, mWorldBounds.height));
 	boundShape.setPosition(50.f, 50.f);
@@ -67,8 +69,12 @@ void World::update(sf::Time dt) {
 		itemVelocity.y >= 0 ? itemVelocity.y += it->getAccelleration() * dt.asSeconds() : itemVelocity.y -= it->getAccelleration() * dt.asSeconds();
 		it->setVelocity(itemVelocity);
 		it->move(deltaX, deltaY);
-		if (it->getBounds().contains(lt) || it->getBounds().contains(lb) || it->getBounds().contains(rt) || it->getBounds().contains(rb))
+		mScoreCurrent = mScoreClock.getElapsedTime().asSeconds();
+		if (it->getBounds().contains(lt) || it->getBounds().contains(lb) || it->getBounds().contains(rt) || it->getBounds().contains(rb)) {
 			mState = World::Stopped;
+			if (mScoreCurrent > mScoreBest) 
+				mScoreBest = mScoreCurrent;
+		}
 	} // for (auto &it : blues) {
 
 
@@ -86,8 +92,10 @@ bool World::handleEvent(const sf::Event & event) {
 		if (event.mouseButton.button == sf::Mouse::Left) {
 			if (mState == World::Waiting) {
 				sf::Vector2f mouse_pos{ sf::Mouse::getPosition(mWindow) };
-				if (red.getBounds().contains(mouse_pos))
+				if (red.getBounds().contains(mouse_pos)) {
 					mState = World::Playing;
+					mScoreClock.restart();
+				}
 			}
 		}
 	} // <= MouseButtonPressed

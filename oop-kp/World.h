@@ -13,6 +13,8 @@
 #include <SFML/Graphics/View.hpp>
 #include <SFML/Graphics/Texture.hpp>
 #include <SFML/Graphics/RectangleShape.hpp>
+#include <SFML/System/Time.hpp>
+#include <SFML/System/Clock.hpp>
 
 #include <array>
 #include <queue>
@@ -23,6 +25,7 @@ namespace sf
 {
 	class RenderWindow;
 	class Event;
+	class Clock;
 }
 
 class World : private sf::NonCopyable
@@ -43,14 +46,14 @@ public:
 	State getState();
 	void setState(State state);
 
+	float getScoreCurrent() { return mScoreCurrent; };
+	float getScoreBest() { return mScoreBest; };
+
 	void reset();
 
 private:
 	//void				loadTextures();
 	void buildScene();
-	//void				adaptPlayerPosition();
-	//void				adaptPlayerVelocity();
-	bool Intersect(SceneNode const &nodeA, SceneNode const &nodeB);
 
 private:
 	enum Layer 	{
@@ -62,6 +65,10 @@ private:
 
 private:
 	State mState;
+	float mScoreCurrent;
+	float mScoreBest;
+
+	sf::Clock mScoreClock;
 
 	sf::RenderWindow& mWindow;
 	sf::View mWorldView;
