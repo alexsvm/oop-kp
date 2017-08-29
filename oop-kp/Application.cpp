@@ -1,9 +1,14 @@
 #include "Application.h"
 #include "StateTitle.h"
 
-const sf::Time Application::TimePerFrame = sf::seconds(1.f / 120.f);
+const sf::Time Application::TimePerFrame = sf::seconds(1.f / 60.f);
 
-Application::Application() : /*nomad1(100, 100, 200),*/ Textures(), Fonts(), mGUI(Fonts), mStateStack(State::Context(Window, Textures, Fonts, mGUI))
+Application::Application() : /*nomad1(100, 100, 200),*/
+	Textures(),
+	Fonts(),
+	mGUI(Fonts),
+	mStateStack(State::Context(Window, Textures, Fonts, mGUI)),
+	showHUD(true)
 {
 	srand(std::time(NULL));
 
@@ -42,7 +47,7 @@ void Application::run() {
 	sf::Time timeSinceLastUpdate = sf::Time::Zero;
 
 	while (Window.isOpen()) {
-		mHUD->begin_update();
+		if (showHUD) mHUD->begin_update();
 
 		processInput();
 
@@ -134,8 +139,8 @@ void Application::render() {
 
 	mStateStack.draw();
 
-	mHUD->end_update();
-	mHUD->draw();
+	if (showHUD) mHUD->end_update();
+	if (showHUD) mHUD->draw();
 
 	Window.display();
 }
@@ -144,5 +149,6 @@ void Application::registerStates() {
 	mStateStack.registerState<StateTitle>(States::Title);
 	mStateStack.registerState<StateMenu>(States::Menu);
 	mStateStack.registerState<StateGame>(States::Game);
+	mStateStack.registerState<StateScore>(States::Score);
 }
 

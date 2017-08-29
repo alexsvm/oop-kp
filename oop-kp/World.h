@@ -34,7 +34,8 @@ public:
 	enum State {
 		Waiting,
 		Playing,
-		Stopped
+		Stopped,
+		Over
 	};
 
 	explicit World(sf::RenderWindow& window);

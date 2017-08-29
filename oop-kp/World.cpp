@@ -29,7 +29,6 @@ World::World(sf::RenderWindow& window)
 }
 
 void World::update(sf::Time dt) {
-	
 
 	// Forward commands to scene graph, adapt velocity (scrolling, diagonal correction)
 	//while (!mCommandQueue.isEmpty())
@@ -71,7 +70,7 @@ void World::update(sf::Time dt) {
 		it->move(deltaX, deltaY);
 		mScoreCurrent = mScoreClock.getElapsedTime().asSeconds();
 		if (it->getBounds().contains(lt) || it->getBounds().contains(lb) || it->getBounds().contains(rt) || it->getBounds().contains(rb)) {
-			mState = World::Stopped;
+			mState = World::Over;
 			if (mScoreCurrent > mScoreBest) 
 				mScoreBest = mScoreCurrent;
 		}
@@ -88,6 +87,8 @@ void World::draw() {
 }
 
 bool World::handleEvent(const sf::Event & event) {
+	if (mState == World::Over)
+		return true;
 	if (event.type == sf::Event::MouseButtonPressed) {
 		if (event.mouseButton.button == sf::Mouse::Left) {
 			if (mState == World::Waiting) {

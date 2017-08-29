@@ -27,7 +27,7 @@ bool StateGame::update(sf::Time dt) {
 	mScoreText.setString(std::to_string(mWorld.getScoreCurrent()));
 	//CommandQueue& commands = mWorld.getCommandQueue();
 	//mPlayer.handleRealtimeInput(commands);
-
+	
 	return true;
 }
 
@@ -43,6 +43,11 @@ bool StateGame::handleEvent(const sf::Event& event) {
 	}
 
 	mWorld.handleEvent(event);
+
+	if (mWorld.getState() == World::Over) {
+		//requestStackPop();
+		requestStackPush(States::Score);
+	}
 
 	return true;
 }

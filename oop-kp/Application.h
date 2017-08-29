@@ -9,6 +9,7 @@
 #include "StateStack.h"
 #include "StateMenu.h"
 #include "StateGame.h"
+#include "StateScore.h"
 #include "GUI.h"
 //#include "sfGUI.h"
 //#include "items.h"
@@ -50,6 +51,7 @@ private:
 	//float _mx, _my;
 	
 	HUD *mHUD;
+	bool showHUD;
 
 	//Player					mPlayer;
 

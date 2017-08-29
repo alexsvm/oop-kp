@@ -14,6 +14,7 @@ namespace States {
 		Title,
 		Menu,
 		Game,
+		Score
 		//Loading,
 		//Pause,
 		//Settings

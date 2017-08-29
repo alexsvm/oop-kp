@@ -1,3 +1,4 @@
+#include "Foreach.h"
 #include "StateStack.h"
 #include <cassert>
 
@@ -7,35 +8,38 @@ StateStack::StateStack(State::Context context) : mStack(), mPendingList(), mCont
 
 void StateStack::update(sf::Time dt) { 
 	// Iterate from top to bottom, stop as soon as update() returns false
-	for (auto &it : mStack) {
+	
+	/*for (auto &it : mStack) {
 		if (!it->update(dt))
 			break;
+	}*/
+
+	for (auto itr = mStack.rbegin(); itr != mStack.rend(); ++itr)
+	{
+		if (!(*itr)->update(dt))
+			break;
 	}
-	//for (auto itr = mStack.rbegin(); itr != mStack.rend(); ++itr)
-	//{
-	//	if (!(*itr)->update(dt))
-	//		break;
-	//}
 	applyPendingChanges();
 }
 
 void StateStack::draw() {
-	for (auto &state : mStack)
-		state->draw();
+	/*for (auto &state : mStack)
+		state->draw();*/
+
 	// Draw all active states from bottom to top
-	//FOREACH(State::Ptr& state, mStack)
-	//	state->draw();
+	FOREACH(State::Ptr& state, mStack)
+		state->draw();
 }
 
 void StateStack::handleEvent(const sf::Event& event) { 	// Iterate from top to bottom, stop as soon as handleEvent() returns false
-	for (auto &it : mStack)
+	/*for (auto &it : mStack)
 		if (!it->handleEvent(event))
-			break;
-	/*for (auto itr = mStack.rbegin(); itr != mStack.rend(); ++itr)
+			break;*/
+	for (auto itr = mStack.rbegin(); itr != mStack.rend(); ++itr)
 	{
 		if (!(*itr)->handleEvent(event))
 			break;
-	}*/
+	}
 	applyPendingChanges();
 }
 

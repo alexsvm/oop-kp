@@ -159,6 +159,7 @@
     <ClInclude Include="collision.h" />
     <ClInclude Include="ColorConsole.h" />
     <ClInclude Include="Entity.h" />
+    <ClInclude Include="Foreach.h" />
     <ClInclude Include="FrameClock.h" />
     <ClInclude Include="GUI.h" />
     <ClInclude Include="HUD.h" />
@@ -168,6 +169,7 @@
     <ClInclude Include="State.h" />
     <ClInclude Include="StateGame.h" />
     <ClInclude Include="StateMenu.h" />
+    <ClInclude Include="StateScore.h" />
     <ClInclude Include="StateStack.h" />
     <ClInclude Include="StateTitle.h" />
     <ClInclude Include="Utility.h" />
@@ -185,6 +187,7 @@
     <ClCompile Include="State.cpp" />
     <ClCompile Include="StateGame.cpp" />
     <ClCompile Include="StateMenu.cpp" />
+    <ClCompile Include="StateScore.cpp" />
     <ClCompile Include="StateStack.cpp" />
     <ClCompile Include="StateTitle.cpp" />
     <ClCompile Include="Utility.cpp" />
