@@ -14,6 +14,7 @@ Application::Application() : /*nomad1(100, 100, 200),*/
 
 	settings.antialiasingLevel = 8;
 	Window.create(sf::VideoMode(1024, 768), "Hello world!", sf::Style::Close || sf::Style::Titlebar, settings); // Create SFML's window.
+	//Window.setVerticalSyncEnabled(true);
 	Window.setKeyRepeatEnabled(false);
 
 	Window.resetGLStates();
