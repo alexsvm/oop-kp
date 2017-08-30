@@ -49,21 +49,21 @@ public:
 			"}"
 		
 			"Button:PRELIGHT {"
-			//" Color: #FAFA00FF;"
+			" Color: #FAFA00FF;"
 			" BackgroundColor: #FFFF00FF;"
 			"}"
 
 			"Button:ACTIVE {"
-			//" Color: #FFFF00FF;"
+			" Color: #FFFF00FF;"
 			" BackgroundColor: #FF3030FF;"
 			"}"
 
 
-			/*"#btn_play:PRELIGHT {"
-			" Color: #FFFF00FF;"
-			" BackgroundColor: #0F000FFF;"
+			"Button#btn_play:PRELIGHT {"
+			" Color: #FFFFFFFF;"
+			" BackgroundColor: #0F0F0FFF;"
 			"}"
-
+			/*
 			"#btn_play {"
 			" Color: #FFFF00FF;"
 			" BackgroundColor: #0F000FFF;"
