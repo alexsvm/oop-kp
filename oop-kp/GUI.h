@@ -42,19 +42,20 @@ public:
 			"}"
 
 			"Button {"
-			" Color: #FF0000FF;"
+			" Color: #FF00FFFF;"
+			" BackgroundColor: #800000FF;"
 			" FontName: menu_font;"
 			" FontSize: 32;"
 			"}"
 		
 			"Button:PRELIGHT {"
-			" Color: #FFFF00F0;"
-			" BackgroundColor: #0F000FF0;"
+			//" Color: #FAFA00FF;"
+			" BackgroundColor: #FFFF00FF;"
 			"}"
 
 			"Button:ACTIVE {"
-			" Color: #FFFF00FF;"
-			" BackgroundColor: #0F000FFF;"
+			//" Color: #FFFF00FF;"
+			" BackgroundColor: #FF3030FF;"
 			"}"
 
 
