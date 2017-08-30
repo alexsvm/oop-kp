@@ -17,7 +17,11 @@ private:
 	sfg::Window::Ptr sfgWindow;
 	//sfg::Desktop sfgDesktop;
 
+	sfg::Box::Ptr menuBox;
+
 	sfg::Button::Ptr btnPlay;
 	sfg::Button::Ptr btnExit;
+
+
 };
 

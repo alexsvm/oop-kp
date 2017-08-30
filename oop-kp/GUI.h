@@ -21,31 +21,55 @@ public:
 		// Setting up fonts for GUI
 		std::shared_ptr<const sf::Font> my_font = std::make_shared<const sf::Font>(fonts->get(Fonts::Menu));
 		sfgDesktop.GetEngine().GetResourceManager().AddFont("menu_font", my_font);
-		//sfgDesktop.SetProperty("Button", "FontName", "menu_font" );
-		//sfgDesktop.SetProperty("Button", "FontSize", 48.f);
-		//sfgDesktop.SetProperty("Button", "Color", sf::Color::Yellow);
-		//sfgDesktop.SetProperty("#btn_exit", "Color", sf::Color::Red);
+
+		// https://github.com/TankOs/SFGUI/blob/master/src/SFGUI/Engines/BREW.cpp - см. здесь (АВМ)
+
 		sfgDesktop.SetProperties(
 			//	/*"Window#second_window > Box > Label {"
 			//	"	FontName: custom_font;"
 			//	"	FontSize: 18;"
 			//	"}"*/
 			"#main_window {"
-			" Color: #0F000F0F;"
+			" BackgroundColor: #00FF0F80;"
+			" BorderColor: #FF0F0F80;"
+			" BorderWidth: 4.f;"
 			"}"
+
+			"#menu_box {"
+			" BackgroundColor: #0F000F0F;"
+			" BorderColor: #00FF0FFF;"
+			" BorderWidth: 2.f;"
+			"}"
+
 			"Button {"
 			" Color: #FF0000FF;"
 			" FontName: menu_font;"
 			" FontSize: 32;"
 			"}"
+		
+			"Button:PRELIGHT {"
+			" Color: #FFFF00F0;"
+			" BackgroundColor: #0F000FF0;"
+			"}"
+
+			"Button:ACTIVE {"
+			" Color: #FFFF00FF;"
+			" BackgroundColor: #0F000FFF;"
+			"}"
+
+
+			/*"#btn_play:PRELIGHT {"
+			" Color: #FFFF00FF;"
+			" BackgroundColor: #0F000FFF;"
+			"}"
+
 			"#btn_play {"
 			" Color: #FFFF00FF;"
-			//"	FontName: \\fonts\\hermes.ttf;"
+			" BackgroundColor: #0F000FFF;"
+			" BorderColor: #00FF0FFF;"
+			" FontName: menu_font;"
 			" FontSize: 48;"
-			"}"
-			"Box {"
-			" Color: #000F0F0F;"
-			"}"
+			"}"*/
 		);
 	}
 

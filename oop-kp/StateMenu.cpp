@@ -44,19 +44,20 @@ StateMenu::StateMenu(StateStack & stack, Context context) : State(stack, context
 	btnExit = sfg::Button::Create(" E X I T ");
 	btnExit->GetSignal(sfg::Widget::OnLeftClick).Connect([this] { requestStackPop(); });
 
-	sfg::Box::Ptr box = sfg::Box::Create(sfg::Box::Orientation::VERTICAL);
-	box->SetSpacing(20.f);
-	box->Pack(btnPlay, false);
-	box->Pack(btnExit, false);
+	menuBox = sfg::Box::Create(sfg::Box::Orientation::VERTICAL);
+	menuBox->SetSpacing(20.f);
+	menuBox->Pack(btnPlay, false);
+	menuBox->Pack(btnExit, false);
 
 	sfgWindow = sfg::Window::Create();
 	sfgWindow->SetTitle("Menu");
 	sfgWindow->SetStyle(sfg::Window::BACKGROUND);
 
-	sfgWindow->Add(box);
+	sfgWindow->Add(menuBox);
 	sfgWindow->SetAllocation(sf::FloatRect(320, 256, 1024 - 320 * 2, 768 - 256 * 2));
 
 	sfgWindow->SetId("main_window");
+	menuBox->SetId("menu_box");
 	btnExit->SetId("btn_play");
 	btnExit->SetId("btn_exit");
 	
