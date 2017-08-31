@@ -17,4 +17,9 @@ private:
 
 	//sfg::Button::Ptr btnPlay;
 	//sfg::Button::Ptr btnExit;
+
+public:
+	virtual void beforeStackPop();
+	virtual void afterStackPush();
+
 };

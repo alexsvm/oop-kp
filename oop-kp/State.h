@@ -61,4 +61,9 @@ protected:
 private:
 	StateStack*			mStack;
 	Context				mContext;
+
+public:
+	virtual void		beforeStackPop();
+	virtual void		afterStackPush();
+
 };

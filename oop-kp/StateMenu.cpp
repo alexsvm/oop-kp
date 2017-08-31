@@ -71,27 +71,29 @@ StateMenu::StateMenu(StateStack & stack, Context context) : State(stack, context
 	btnExit->SetId("btn_exit");
 	btnReloadTheme->SetId("btn_reloadtheme");
 	
-	//sfgDesktop.SetProperty("Button#btn_play", "FontSize", 96.f);
-	
-	getContext().gui->sfgDesktop.Add(sfgWindow);
-	//sfgDesktop.Add(sfgWindow);
+	//getContext().gui->sfgDesktop.Add(sfgWindow);
 
 }
 
 void StateMenu::draw() {
 	sf::RenderWindow& window = *getContext().window;
 	getContext().gui->sfGUI.Display(window);
-	//sfGUI.Display(window);
 }
 
 bool StateMenu::update(sf::Time dt) {
 	getContext().gui->sfgDesktop.Update(dt.asSeconds());
-	//sfgDesktop.Update(dt.asSeconds());
 	return false;
 }
 
 bool StateMenu::handleEvent(const sf::Event & event) {
 	getContext().gui->sfgDesktop.HandleEvent(event);
-	//sfgDesktop.HandleEvent(event);
 	return false;
+}
+
+void StateMenu::beforeStackPop() {
+	getContext().gui->sfgDesktop.Remove(sfgWindow);
+}
+
+void StateMenu::afterStackPush() {
+	getContext().gui->sfgDesktop.Add(sfgWindow);
 }

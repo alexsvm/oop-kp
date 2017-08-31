@@ -31,7 +31,7 @@ StateScore::StateScore(StateStack & stack, Context context) : State(stack, conte
 	Label1->SetId("score_label");
 	Label1->SetId("score_label");
 
-	getContext().gui->sfgDesktop.Add(sfgWindow);
+	//getContext().gui->sfgDesktop.Add(sfgWindow);
 
 }
 
@@ -55,4 +55,12 @@ bool StateScore::handleEvent(const sf::Event & event) {
 	getContext().gui->sfgDesktop.HandleEvent(event);
 	
 	return true;
+}
+
+void StateScore::beforeStackPop() {
+	getContext().gui->sfgDesktop.Remove(sfgWindow);
+}
+
+void StateScore::afterStackPush() {
+	getContext().gui->sfgDesktop.Add(sfgWindow);
 }

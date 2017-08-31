@@ -16,10 +16,13 @@ State::~State() {
 }
 
 void State::requestStackPush(States::ID stateID) {
+	//afterStackPush();
 	mStack->pushState(stateID);
+	
 }
 
 void State::requestStackPop() {
+	//beforeStackPop();
 	mStack->popState();
 }
 
@@ -29,5 +32,11 @@ void State::requestStateClear() {
 
 State::Context State::getContext() const {
 	return mContext;
+}
+
+void State::beforeStackPop() {
+}
+
+void State::afterStackPush() {
 }
 

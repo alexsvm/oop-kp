@@ -47,6 +47,7 @@ bool StateGame::handleEvent(const sf::Event& event) {
 	if (mWorld.getState() == World::Over) {
 		//requestStackPop();
 		requestStackPush(States::Score);
+		mWorld.setState(World::State::Stopped);
 	}
 
 	return true;

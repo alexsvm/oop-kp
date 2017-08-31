@@ -24,5 +24,9 @@ private:
 
 	sfg::Button::Ptr btnReloadTheme;
 
+public:
+	virtual void beforeStackPop();
+	virtual void afterStackPush();
+
 };
 

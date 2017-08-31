@@ -70,11 +70,19 @@ void StateStack::applyPendingChanges() {
 	for (auto &change : mPendingList) {
 		switch (change.action) {
 		case Push:
-			mStack.push_back(createState(change.stateID));
+		{
+			auto mState = createState(change.stateID);
+			mState->afterStackPush();
+			mStack.push_back(std::move(mState));
+		}
 			break;
 
 		case Pop:
+		{
+			auto mState = mStack.back().get();
+			mState->beforeStackPop();
 			mStack.pop_back();
+		}
 			break;
 
 		case Clear:
