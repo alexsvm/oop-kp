@@ -1,0 +1,41 @@
+#main_window {
+	BackgroundColor: #00FF0F80;
+	BorderColor: #FF0F0F80;
+	BorderWidth: 2.f;
+	ShadowDistance: 5.f;
+	ShadowAlpha: 200.f;
+}
+
+#score_window {
+	BackgroundColor: #00FF0F80;
+	BorderColor: #FF0F0F80;
+	BorderWidth: 4.f;
+	}
+			
+#menu_box {
+	BackgroundColor: #0F000F0F;
+	BorderColor: #00FF0FFF;
+	BorderWidth: 2.f;
+}
+
+Button {
+	Color: #FF00FFFF;
+	BackgroundColor: #800000FF;
+	FontName: menu_font;
+	FontSize: 32;
+}
+		
+Button:PRELIGHT {
+	Color: #FAFA00FF;
+	BackgroundColor: #FFFF00FF;
+}
+
+Button:ACTIVE {
+	Color: #FFFF00FF;
+	BackgroundColor: #FF3030FF;
+}
+
+#btn_play:PRELIGHT {
+	Color: #FFFFFFFF;
+	BackgroundColor: #4F4F4FFF;
+	}
