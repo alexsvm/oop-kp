@@ -47,6 +47,9 @@ void World::update(sf::Time dt) {
 	sf::Vector2f lb = { RB.left, RB.top + RB.height};
 	sf::Vector2f rt = { RB.left + RB.width, RB.top };
 	sf::Vector2f rb = { RB.left + RB.width, RB.top + RB.height };
+	// TODO: check collision RED and boundShape
+	
+
 
 	// update blues and check theirs collisions with world bounds!
 	for (auto &it : blues) {
