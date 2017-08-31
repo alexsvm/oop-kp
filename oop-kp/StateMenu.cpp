@@ -44,10 +44,19 @@ StateMenu::StateMenu(StateStack & stack, Context context) : State(stack, context
 	btnExit = sfg::Button::Create(" E X I T ");
 	btnExit->GetSignal(sfg::Widget::OnLeftClick).Connect([this] { requestStackPop(); });
 
+	btnReloadTheme = sfg::Button::Create(" reload theme ");
+	btnReloadTheme->GetSignal(sfg::Widget::OnLeftClick).Connect(
+		[this] { 
+		if (std::ifstream("sfgui.theme")) 
+			getContext().gui->sfgDesktop.LoadThemeFromFile("sfgui.theme"); 
+	});
+
 	menuBox = sfg::Box::Create(sfg::Box::Orientation::VERTICAL);
 	menuBox->SetSpacing(20.f);
 	menuBox->Pack(btnPlay, false);
 	menuBox->Pack(btnExit, false);
+	menuBox->Pack(sfg::Separator::Create());
+	menuBox->Pack(btnReloadTheme, false);
 
 	sfgWindow = sfg::Window::Create();
 	sfgWindow->SetTitle("Menu");
@@ -58,8 +67,9 @@ StateMenu::StateMenu(StateStack & stack, Context context) : State(stack, context
 
 	sfgWindow->SetId("main_window");
 	menuBox->SetId("menu_box");
-	btnExit->SetId("btn_play");
+	btnPlay->SetId("btn_play");
 	btnExit->SetId("btn_exit");
+	btnReloadTheme->SetId("btn_reloadtheme");
 	
 	//sfgDesktop.SetProperty("Button#btn_play", "FontSize", 96.f);
 	

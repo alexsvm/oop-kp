@@ -22,6 +22,7 @@ private:
 	sfg::Button::Ptr btnPlay;
 	sfg::Button::Ptr btnExit;
 
+	sfg::Button::Ptr btnReloadTheme;
 
 };
 

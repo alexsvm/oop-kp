@@ -1,5 +1,6 @@
 #pragma once
 
+#include <fstream>
 #include <SFGUI\SFGUI.hpp>
 #include <SFML/Graphics/Text.hpp>
 #include <SFGUI\Widgets.hpp>
@@ -24,54 +25,68 @@ public:
 
 		// https://github.com/TankOs/SFGUI/blob/master/src/SFGUI/Engines/BREW.cpp - см. здесь (АВМ)
 
-		sfgDesktop.SetProperties(
-			//	/*"Window#second_window > Box > Label {"
-			//	"	FontName: custom_font;"
-			//	"	FontSize: 18;"
-			//	"}"*/
-			"#main_window {"
-			" BackgroundColor: #00FF0F80;"
-			" BorderColor: #FF0F0F80;"
-			" BorderWidth: 4.f;"
-			"}"
+		if (std::ifstream("sfgui.theme"))
+			sfgDesktop.LoadThemeFromFile("sfgui.theme");
+		//else
+		//	return;
 
-			"#menu_box {"
-			" BackgroundColor: #0F000F0F;"
-			" BorderColor: #00FF0FFF;"
-			" BorderWidth: 2.f;"
-			"}"
+		//sfgDesktop.SetProperties(
+		//	//	/*"Window#second_window > Box > Label {"
+		//	//	"	FontName: custom_font;"
+		//	//	"	FontSize: 18;"
+		//	//	"}"*/
+		//	"#main_window {"
+		//	" BackgroundColor: #00FF0F80;"
+		//	" BorderColor: #FF0F0F80;"
+		//	" BorderWidth: 4.f;"
+		//	" ShadowDistance: 5.f;"
+		//	" ShadowAlpha: 200.f;"
+		//	"}"
 
-			"Button {"
-			" Color: #FF00FFFF;"
-			" BackgroundColor: #800000FF;"
-			" FontName: menu_font;"
-			" FontSize: 32;"
-			"}"
-		
-			"Button:PRELIGHT {"
-			" Color: #FAFA00FF;"
-			" BackgroundColor: #FFFF00FF;"
-			"}"
+		//	"#score_window {"
+		//	" BackgroundColor: #00FF0F80;"
+		//	" BorderColor: #FF0F0F80;"
+		//	" BorderWidth: 4.f;"
+		//	"}"
+		//	
 
-			"Button:ACTIVE {"
-			" Color: #FFFF00FF;"
-			" BackgroundColor: #FF3030FF;"
-			"}"
+		//	"#menu_box {"
+		//	" BackgroundColor: #0F000F0F;"
+		//	" BorderColor: #00FF0FFF;"
+		//	" BorderWidth: 2.f;"
+		//	"}"
+
+		//	"Button {"
+		//	" Color: #FF00FFFF;"
+		//	" BackgroundColor: #800000FF;"
+		//	" FontName: menu_font;"
+		//	" FontSize: 32;"
+		//	"}"
+		//
+		//	"Button:PRELIGHT {"
+		//	" Color: #FAFA00FF;"
+		//	" BackgroundColor: #FFFF00FF;"
+		//	"}"
+
+		//	"Button:ACTIVE {"
+		//	" Color: #FFFF00FF;"
+		//	" BackgroundColor: #FF3030FF;"
+		//	"}"
 
 
-			"Button#btn_play:PRELIGHT {"
-			" Color: #FFFFFFFF;"
-			" BackgroundColor: #0F0F0FFF;"
-			"}"
-			/*
-			"#btn_play {"
-			" Color: #FFFF00FF;"
-			" BackgroundColor: #0F000FFF;"
-			" BorderColor: #00FF0FFF;"
-			" FontName: menu_font;"
-			" FontSize: 48;"
-			"}"*/
-		);
+		//	"Button#btn_play:PRELIGHT {"
+		//	" Color: #FFFFFFFF;"
+		//	" BackgroundColor: #0F0F0FFF;"
+		//	"}"
+		//	/*
+		//	"#btn_play {"
+		//	" Color: #FFFF00FF;"
+		//	" BackgroundColor: #0F000FFF;"
+		//	" BorderColor: #00FF0FFF;"
+		//	" FontName: menu_font;"
+		//	" FontSize: 48;"
+		//	"}"*/
+		//);
 	}
 
 };
