@@ -1,5 +1,11 @@
 #pragma once
 
+// TODO: Текстура на заставке
+// TODO: check main window size
+// TODO: Intro - onMouseClick handler
+
+// TODO: options menu??
+
 //#include <SFML/Graphics.hpp>
 #include <SFML/System/Time.hpp>
 #include <SFML/Graphics/RenderWindow.hpp>
