@@ -1,8 +1,6 @@
 #include "StateTitle.h"
-
-//#include <Book/Utility.hpp>
+#include "Utility.h"
 #include "ResourceManager.h"
-
 #include <SFML/Graphics/RenderWindow.hpp>
 
 
@@ -10,7 +8,7 @@ StateTitle::StateTitle(StateStack& stack, Context context) : State(stack, contex
 	mBackgroundSprite.setTexture(context.textures->get(Textures::TitleScreen));
 	mText.setFont(context.fonts->get(Fonts::Main));
 	mText.setString("Press any key to start");
-	//centerOrigin(mText);
+	centerOrigin(mText);
 	mText.setPosition(sf::Vector2f(context.window->getSize() / 2u));
 }
 

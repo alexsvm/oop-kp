@@ -13,7 +13,7 @@ Application::Application() : /*nomad1(100, 100, 200),*/
 	srand(std::time(NULL));
 
 	settings.antialiasingLevel = 8;
-	Window.create(sf::VideoMode(1024, 768), "Hello world!", sf::Style::Close || sf::Style::Titlebar, settings); // Create SFML's window.
+	Window.create(sf::VideoMode(800, 600), "Hello world!", sf::Style::Close || sf::Style::Titlebar, settings); // Create SFML's window.
 	Window.setVerticalSyncEnabled(false);
 	Window.setKeyRepeatEnabled(false);
 

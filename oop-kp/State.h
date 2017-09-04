@@ -21,9 +21,6 @@ namespace States {
 	};
 }
 
-namespace sf {
-	class RenderWindow;
-}
 
 class StateStack;
 class Player;

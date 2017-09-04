@@ -1,40 +1,9 @@
-//#include <memory>
 #include "StateMenu.h"
 #include <SFML/Graphics/Font.hpp>
-
-
+#include "ResourceManager.h"
+#include <SFML/Graphics/RenderWindow.hpp>
 
 StateMenu::StateMenu(StateStack & stack, Context context) : State(stack, context) {
-
-	//std::shared_ptr<const sf::Font> my_font = std::make_shared<const sf::Font>(context.fonts->get(Fonts::Menu));
-	//sfgDesktop.GetEngine().GetResourceManager().AddFont("menu_font", my_font);
-	//sfgDesktop.SetProperty("Button", "FontName", "menu_font" );
-	//sfgDesktop.SetProperty("Button", "FontSize", 48.f);
-	//sfgDesktop.SetProperty("Button", "Color", sf::Color::Yellow);
-	//sfgDesktop.SetProperty("#btn_exit", "Color", sf::Color::Red);
-	//sfgDesktop.SetProperties(
-	//	//	/*"Window#second_window > Box > Label {"
-	//	//	"	FontName: custom_font;"
-	//	//	"	FontSize: 18;"
-	//	//	"}"*/
-	//	"#main_window {"
-	//	" Color: #0F000F0F;"
-	//	"}"
-	//	"Button {"
-	//		" Color: #FF0000FF;"
-	//		" FontName: menu_font;"
-	//		" FontSize: 32;"
-	//		"}"
-	//	"#btn_play {"
-	//		" Color: #FFFF00FF;"
-	//		//"	FontName: \\fonts\\hermes.ttf;"
-	//		" FontSize: 48;"
-	//		"}"
-	//	"Box {"
-	//		" Color: #000F0F0F;"
-	//	"}"
-	//);
-
 
 	btnPlay = sfg::Button::Create(" P L A Y ");
 	btnPlay->GetSignal(sfg::Widget::OnLeftClick).Connect([this] { requestStackPop();  requestStackPush(States::Game); });
@@ -63,8 +32,12 @@ StateMenu::StateMenu(StateStack & stack, Context context) : State(stack, context
 	sfgWindow->SetStyle(sfg::Window::BACKGROUND);
 
 	sfgWindow->Add(menuBox);
-	sfgWindow->SetAllocation(sf::FloatRect(320, 256, 1024 - 320 * 2, 768 - 256 * 2));
-
+	// 800/3=260 600/3=200
+	auto wSize = sf::Vector2f(getContext().window->getSize()) / 2.f; // делим на долю экрана, которую занимает меню
+	auto wPos = (sf::Vector2f(getContext().window->getSize()) - wSize) / 2.f;
+	sfgWindow->SetAllocation(sf::FloatRect(wPos, wSize));
+	
+	
 	sfgWindow->SetId("main_window");
 	menuBox->SetId("menu_box");
 	btnPlay->SetId("btn_play");
