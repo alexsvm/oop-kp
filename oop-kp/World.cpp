@@ -38,6 +38,9 @@ void World::update(sf::Time dt) {
 
 	if (mState != World::Playing)
 		return;
+	
+	auto worldBounds = sf::FloatRect(boundShape.getPosition(), boundShape.getSize());
+
 	// update RED:
 	sf::Vector2f mouse_pos{ sf::Mouse::getPosition(mWindow) }; // -mWindow.getPosition() };
 	red.setPosition(mouse_pos);
@@ -47,9 +50,12 @@ void World::update(sf::Time dt) {
 	sf::Vector2f lb = { RB.left, RB.top + RB.height};
 	sf::Vector2f rt = { RB.left + RB.width, RB.top };
 	sf::Vector2f rb = { RB.left + RB.width, RB.top + RB.height };
-	// TODO: check collision RED and boundShape
-	
-
+	// check collision RED and boundShape
+	if (!(worldBounds.contains(lt) && worldBounds.contains(lb) && worldBounds.contains(rt) && worldBounds.contains(rb))) {
+		mState = World::Over;
+		if (mScoreCurrent > mScoreBest)
+			mScoreBest = mScoreCurrent;
+	}
 
 	// update blues and check theirs collisions with world bounds!
 	for (auto &it : blues) {
@@ -57,7 +63,6 @@ void World::update(sf::Time dt) {
 		auto deltaX = itemVelocity.x * dt.asSeconds();
 		auto deltaY = itemVelocity.y * dt.asSeconds();
 		auto itemBounds = it->getBounds();
-		auto worldBounds = sf::FloatRect(boundShape.getPosition(), boundShape.getSize());
 		if (worldBounds.left >= (itemBounds.left + deltaX) || (worldBounds.left + worldBounds.width) <= (itemBounds.left + itemBounds.width + deltaX)) { // left or right intersection
 			deltaX = -deltaX;
 			itemVelocity.x = - itemVelocity.x;

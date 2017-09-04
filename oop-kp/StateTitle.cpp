@@ -29,10 +29,14 @@ bool StateTitle::update(sf::Time dt) {
 }
 
 bool StateTitle::handleEvent(const sf::Event& event) { 	// If any key is pressed, trigger the next screen
-	if (event.type == sf::Event::KeyReleased)
-	{
+	if (event.type == sf::Event::KeyReleased) {
 		requestStackPop();
 		requestStackPush(States::Menu);
 	}
+	if (event.type == sf::Event::MouseButtonPressed) {
+		requestStackPop();
+		requestStackPush(States::Menu);
+	} // <= MouseButtonPressed
+
 	return true;
 }

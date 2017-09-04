@@ -1,4 +1,5 @@
 #include "StateScore.h"
+#include <SFML/Graphics/RenderWindow.hpp>
 
 StateScore::StateScore(StateStack & stack, Context context) : State(stack, context) {
 
@@ -25,7 +26,10 @@ StateScore::StateScore(StateStack & stack, Context context) : State(stack, conte
 	sfgWindow->SetStyle(sfg::Window::BACKGROUND);
 
 	sfgWindow->Add(box);
-	sfgWindow->SetAllocation(sf::FloatRect(320, 256, 1024 - 320 * 2, 768 - 256 * 2));
+
+	auto wSize = sf::Vector2f(getContext().window->getSize()) / 2.f; // делим на долю экрана, которую занимает меню
+	auto wPos = (sf::Vector2f(getContext().window->getSize()) - wSize) / 2.f;
+	sfgWindow->SetAllocation(sf::FloatRect(wPos, wSize));
 
 	sfgWindow->SetId("score_window");
 	Label1->SetId("score_label");

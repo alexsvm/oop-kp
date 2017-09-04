@@ -1,10 +1,9 @@
 #pragma once
 
-// TODO: Текстура на заставке
-// TODO: check main window size
-// TODO: Intro - onMouseClick handler
-
+// TODO: Текстура на заставке 800x600??
 // TODO: options menu??
+// TODO: Разобраться со шрифтами меню и размером кнопок
+// TODO: Стиль окна результата и отображение результата
 
 //#include <SFML/Graphics.hpp>
 #include <SFML/System/Time.hpp>
