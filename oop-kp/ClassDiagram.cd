@@ -1,0 +1,447 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="Application">
+    <Position X="0.5" Y="2" Width="2.25" />
+    <AssociationLine Name="Fonts" Type="FontHolder" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="0.5" Y="3.062" />
+        <Point X="0.292" Y="3.062" />
+        <Point X="0.292" Y="9.531" />
+        <Point X="0.5" Y="9.531" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.45" Y="0.35" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="Textures" Type="TextureHolder" ManuallyRouted="true">
+      <Path>
+        <Point X="0.5" Y="2.875" />
+        <Point X="0.198" Y="2.875" />
+        <Point X="0.198" Y="10.531" />
+        <Point X="0.5" Y="10.531" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="-1.065" Y="0.36" Height="0.182" Width="1.236" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>ADAAAgAAABAAAABAAAIAACAAQACACAAAAAAASEAUAAA=</HashCode>
+      <FileName>Application.h</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="mStateStack" />
+      <Field Name="mHUD" />
+      <Field Name="mGUI" />
+      <Field Name="Fonts" />
+      <Field Name="Textures" />
+      <Field Name="Window" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="State">
+    <Position X="6.75" Y="1.75" Width="1.75" />
+    <NestedTypes>
+      <Typedef Name="State::Ptr" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>State.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Typedef>
+      <Struct Name="State::Context" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>State.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAABAAAAIAAAABAAAQAISAAAAgBBAkAAA=</HashCode>
+      <FileName>State.h</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="mStack" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="StateGame">
+    <Position X="6.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAEBAAAAIAAAAAAAAAAAAAAAAAAAEEAAA=</HashCode>
+      <FileName>StateGame.h</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="mWorld" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="StateMenu">
+    <Position X="5" Y="6.25" Width="1.5" />
+    <InheritanceLine Type="State" FixedToPoint="true">
+      <Path>
+        <Point X="7.625" Y="5.488" />
+        <Point X="7.625" Y="5.95" />
+        <Point X="5.625" Y="5.95" />
+        <Point X="5.625" Y="6.25" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABAAAAIAAAADAqgAAAAAAAAgQAAEAAA=</HashCode>
+      <FileName>StateMenu.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="StateScore">
+    <Position X="8.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABAAAAoAAAABAAAAAAAAAAAgQAAEAAA=</HashCode>
+      <FileName>StateScore.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="StateTitle">
+    <Position X="3.25" Y="6.25" Width="1.5" />
+    <InheritanceLine Type="State" FixedToPoint="true">
+      <Path>
+        <Point X="7.625" Y="5.488" />
+        <Point X="7.625" Y="5.95" />
+        <Point X="4" Y="5.95" />
+        <Point X="4" Y="6.25" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAIABAABAIAAABCAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>StateTitle.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="StateStack">
+    <Position X="3.75" Y="1.25" Width="2" />
+    <NestedTypes>
+      <Enum Name="StateStack::Action">
+        <TypeIdentifier>
+          <NewMemberFileName>StateStack.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+      <Struct Name="StateStack::PendingChange" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>StateStack.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQABAABAAQAKABIAAAgARAAQAAAAAIAAEQAA=</HashCode>
+      <FileName>StateStack.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="World">
+    <Position X="6.75" Y="9.25" Width="2.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Enum Name="World::State">
+        <TypeIdentifier>
+          <NewMemberFileName>World.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+      <Enum Name="World::Layer" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>World.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <AssociationLine Name="mSceneGraph" Type="SceneNode" FixedToPoint="true">
+      <Path>
+        <Point X="6.75" Y="13.562" />
+        <Point X="5.5" Y="13.562" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>QgBgAAQECBAgQBBAAAIAEBKAQAAAAAAAAAAAAACEAAQ=</HashCode>
+      <FileName>World.h</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="mSceneGraph" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="sf::Texture" Collapsed="true">
+    <Position X="8.75" Y="2.25" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="sf::Texture::CoordinateType" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>ResourceManager.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AIAAEQAAYMACgAhCACAMAgAAABBAACAAAAJwBAJEAIg=</HashCode>
+      <FileName>ResourceManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="sf::Font" Collapsed="true">
+    <Position X="10.5" Y="1.5" Width="1.5" />
+    <NestedTypes>
+      <Struct Name="sf::Font::Info" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>ResourceManager.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Struct Name="sf::Font::Row" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>ResourceManager.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Typedef Name="sf::Font::GlyphTable" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>ResourceManager.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Typedef>
+      <Struct Name="sf::Font::Page" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>ResourceManager.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Typedef Name="sf::Font::PageTable" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>ResourceManager.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Typedef>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>wAAAAQAAAGAAAgEAAAAIAEBC4AAAAAAIQEAwEAAmRAE=</HashCode>
+      <FileName>ResourceManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="sf::Event" Collapsed="true">
+    <Position X="8.75" Y="1.5" Width="1.5" />
+    <NestedTypes>
+      <Struct Name="sf::Event::MouseWheelScrollEvent" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>StateStack.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Struct Name="sf::Event::MouseButtonEvent" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>StateStack.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Struct Name="sf::Event::TextEvent" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>StateStack.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Struct Name="sf::Event::SensorEvent" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>StateStack.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Struct Name="sf::Event::TouchEvent" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>StateStack.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Struct Name="sf::Event::JoystickConnectEvent" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>StateStack.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Struct Name="sf::Event::JoystickMoveEvent" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>StateStack.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Struct Name="sf::Event::JoystickButtonEvent" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>StateStack.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Enum Name="sf::Event::EventType" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>World.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+      <Struct Name="sf::Event::KeyEvent" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>StateStack.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Struct Name="sf::Event::SizeEvent" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>StateStack.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Struct Name="sf::Event::MouseWheelEvent" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>StateStack.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Struct Name="sf::Event::MouseMoveEvent" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>StateStack.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>StateStack.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="sf::RenderWindow" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIBAAAAAAAAAQASAAAAAEAAgAAAAAAAAAAA=</HashCode>
+      <FileName>StateStack.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="sf::Sprite" Collapsed="true">
+    <Position X="10.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQACBEAIAgACAAIAAAAAAAAAACAwAAAAgAIIAAA=</HashCode>
+      <FileName>Utility.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="sf::Text" Collapsed="true">
+    <Position X="8.75" Y="0.5" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="sf::Text::Style" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Utility.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>BAAAAAhGJCAIQADABAIAAABEwBUAkgAIAAECiABIQAA=</HashCode>
+      <FileName>Utility.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="sf::RectangleShape" Collapsed="true">
+    <Position X="8.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAIAAAAgAAAAAAAAAAAAAAAAAAAAAAAIAACI=</HashCode>
+      <FileName>Utility.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="sf::Clock" Collapsed="true">
+    <Position X="10.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAgAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>World.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ClockHUD" Collapsed="true">
+    <Position X="0.5" Y="8" Width="1.5" />
+    <NestedTypes>
+      <Struct Name="ClockHUD::Stat" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>ClockHUD.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Typedef Name="ClockHUD::Stats_t" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>ClockHUD.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Typedef>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AEAAAAABIAAAAAAAAAIACAAAAAAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>ClockHUD.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BlueBox" Collapsed="true">
+    <Position X="1.25" Y="16.5" Width="1.75" />
+    <InheritanceLine Type="Entity">
+      <InheritanceModifierLabel ManuallyPlaced="true">
+        <Position X="-0.463" Y="0.091" />
+      </InheritanceModifierLabel>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAIAAAAAAAAAAAAAAAAAAgAAAAAAAACAABA=</HashCode>
+      <FileName>BlueBox.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entity">
+    <Position X="1.25" Y="12.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>EAQAAAAAAAAABAAAAAAIAAgBAAAAAgAAAAhAAAAAAAA=</HashCode>
+      <FileName>Entity.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GUI" Collapsed="true">
+    <Position X="0.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAAAAAAAAAAAAJAAAAAIAAAAAAAAQAAA=</HashCode>
+      <FileName>GUI.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HUD" Collapsed="true">
+    <Position X="0.5" Y="7" Width="1.5" />
+    <AssociationLine Name="hud" Type="ClockHUD">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.12" Y="0.07" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAIAAAgACAIAEAAAAAIAAAAAACAQAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>HUD.h</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="hud" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="RedBox" Collapsed="true">
+    <Position X="3.75" Y="16.5" Width="1.75" />
+    <InheritanceLine Type="SceneNode">
+      <InheritanceModifierLabel ManuallyPlaced="true">
+        <Position X="0.245" Y="0.05" />
+      </InheritanceModifierLabel>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAIAAAAAAQAAAAAAAAAAAgAAAAAAAAAAABA=</HashCode>
+      <FileName>RedBox.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SceneNode">
+    <Position X="3.75" Y="11.25" Width="1.75" />
+    <NestedTypes>
+      <Typedef Name="SceneNode::Ptr" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>SceneNode.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Typedef>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAQCDAAAAEACAAAAAAIAAAUAAABAAgBAAIAAAAAEABA=</HashCode>
+      <FileName>SceneNode.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ResourceHolder&lt;Resource, Identifier&gt;" Collapsed="true">
+    <Position X="0.5" Y="11.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAACAAQAAAAAAAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>ResourceManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Typedef Name="FontHolder" Collapsed="true">
+    <Position X="0.5" Y="9.25" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ResourceManager.h</FileName>
+    </TypeIdentifier>
+    <AliasOfLine Type="ResourceHolder&lt;Resource, Identifier&gt;" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="0.5" Y="11.625" />
+        <Point X="0.135" Y="11.625" />
+        <Point X="0.135" Y="9.625" />
+        <Point X="0.5" Y="9.625" />
+      </Path>
+    </AliasOfLine>
+  </Typedef>
+  <Typedef Name="TextureHolder" Collapsed="true">
+    <Position X="0.5" Y="10.25" Width="4" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ResourceManager.h</FileName>
+    </TypeIdentifier>
+    <AliasOfLine Type="ResourceHolder&lt;Resource, Identifier&gt;" ManuallyRouted="true" FixedFromPoint="true">
+      <Path>
+        <Point X="0.5" Y="11.5" />
+        <Point X="0.354" Y="11.5" />
+        <Point X="0.354" Y="10.671" />
+        <Point X="0.5" Y="10.671" />
+      </Path>
+    </AliasOfLine>
+  </Typedef>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
