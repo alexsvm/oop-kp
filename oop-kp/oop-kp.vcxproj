@@ -197,6 +197,7 @@
     <Image Include="..\TitleScreen.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\З16ИВТ. Мамаков А.В. ООП. Курсовая работа.docx" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

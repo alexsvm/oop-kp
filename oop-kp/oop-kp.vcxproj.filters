@@ -142,5 +142,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="..\З16ИВТ. Мамаков А.В. ООП. Курсовая работа.docx" />
   </ItemGroup>
 </Project>
