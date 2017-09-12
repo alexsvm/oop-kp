@@ -198,6 +198,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\З16ИВТ. Мамаков А.В. ООП. Курсовая работа.docx" />
+    <None Include="ClassDiagram - App etc.cd" />
     <None Include="ClassDiagram.cd" />
     <None Include="packages.config" />
   </ItemGroup>
