@@ -11,6 +11,12 @@
 	BorderColor: #FF0F0F80;
 	BorderWidth: 4.f;
 	}
+
+#score_label {
+	Color: #FF0000FF;
+	FontName: menu_font;
+	FontSize: 32;
+}
 			
 #menu_box {
 	BackgroundColor: #0F000F0F;

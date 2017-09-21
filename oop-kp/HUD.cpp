@@ -2,7 +2,7 @@
 
 HUD::HUD(State::Context context) : mContext(context) {
 	f_clock.setSampleDepth(100); 	// Sample 100 frames for averaging.
-	font = mContext.fonts->get(Fonts::Main);
+	font = mContext.fonts->get(Fonts::Main); //mContext.fonts->get(Fonts::Main);
 	hud = new ClockHUD(f_clock, font);
 }
 

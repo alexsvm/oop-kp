@@ -163,6 +163,7 @@
     <ClInclude Include="FrameClock.h" />
     <ClInclude Include="GUI.h" />
     <ClInclude Include="HUD.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="RedBox.h" />
     <ClInclude Include="ResourceManager.h" />
     <ClInclude Include="SceneNode.h" />
@@ -201,6 +202,15 @@
     <None Include="ClassDiagram - App etc.cd" />
     <None Include="ClassDiagram.cd" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="..\fonts\abc pipe.ttf" />
+    <Font Include="..\fonts\AvanteTitulInline.ttf" />
+    <Font Include="..\fonts\Cellblock NBP.otf" />
+    <Font Include="..\fonts\Ghost Clan Gradient.ttf" />
+    <Font Include="..\fonts\Hermes.ttf" />
+    <Font Include="..\fonts\K22 Xanthus.ttf" />
+    <Font Include="..\fonts\MachineC.otf" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

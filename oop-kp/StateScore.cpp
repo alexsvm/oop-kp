@@ -33,7 +33,7 @@ StateScore::StateScore(StateStack & stack, Context context) : State(stack, conte
 
 	sfgWindow->SetId("score_window");
 	Label1->SetId("score_label");
-	Label1->SetId("score_label");
+	Label2->SetId("score_label");
 
 	//getContext().gui->sfgDesktop.Add(sfgWindow);
 

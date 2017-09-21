@@ -6,46 +6,46 @@
       <Field Name="showHUD" Hidden="true" />
       <Field Name="TimePerFrame" Hidden="true" />
     </Members>
-    <AssociationLine Name="mStateStack" Type="StateStack" FixedFromPoint="true" FixedToPoint="true">
+    <AssociationLine Name="Fonts" Type="FontHolder" FixedFromPoint="true">
       <Path>
-        <Point X="5.5" Y="0.875" />
-        <Point X="7" Y="0.875" />
-        <Point X="7" Y="1.25" />
-      </Path>
-    </AssociationLine>
-    <AssociationLine Name="mHUD" Type="HUD" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="3.438" Y="2.565" />
-        <Point X="3.438" Y="3.281" />
-        <Point X="2" Y="3.281" />
+        <Point X="5.25" Y="3.017" />
+        <Point X="5.25" Y="4.5" />
       </Path>
     </AssociationLine>
     <AssociationLine Name="mGUI" Type="GUI" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="3.25" Y="2.125" />
-        <Point X="2.875" Y="2.125" />
+        <Point X="3.25" Y="2.48" />
+        <Point X="2.875" Y="2.48" />
         <Point X="2.875" Y="2.531" />
         <Point X="2" Y="2.531" />
       </Path>
     </AssociationLine>
-    <AssociationLine Name="Fonts" Type="FontHolder" FixedFromPoint="true">
+    <AssociationLine Name="mHUD" Type="HUD" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="5.25" Y="2.565" />
-        <Point X="5.25" Y="4.5" />
+        <Point X="3.438" Y="3.017" />
+        <Point X="3.438" Y="3.281" />
+        <Point X="2" Y="3.281" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="mStateStack" Type="StateStack" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="5.5" Y="0.957" />
+        <Point X="7" Y="0.957" />
+        <Point X="7" Y="1.25" />
       </Path>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>ADAAAgAAABAAAABAAAIAACAAQACACAAAAAAASEAUAAA=</HashCode>
+      <HashCode>ADAAAgACABAAAABAAAIAACAAQACACAAAAAAASEAUAAA=</HashCode>
       <FileName>Application.h</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Field Name="mStateStack" />
-      <Field Name="mHUD" />
-      <Field Name="mGUI" />
-      <Field Name="Fonts" />
-      <Field Name="Textures" />
-      <Field Name="Window" />
       <Field Name="settings" />
+      <Field Name="Window" />
+      <Field Name="Textures" />
+      <Field Name="Fonts" />
+      <Field Name="mGUI" />
+      <Field Name="mHUD" />
+      <Field Name="mStateStack" />
     </ShowAsAssociation>
   </Class>
   <Class Name="State">
@@ -132,18 +132,6 @@
     <Compartments>
       <Compartment Name="Methods" Collapsed="true" />
     </Compartments>
-    <NestedTypes>
-      <Enum Name="World::State">
-        <TypeIdentifier>
-          <NewMemberFileName>World.h</NewMemberFileName>
-        </TypeIdentifier>
-      </Enum>
-      <Enum Name="World::Layer" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>World.h</NewMemberFileName>
-        </TypeIdentifier>
-      </Enum>
-    </NestedTypes>
     <TypeIdentifier>
       <HashCode>QgBgAAQECBAgQBBAAAIAEBKAQAAAAAAAAAAAAACEAAQ=</HashCode>
       <FileName>World.h</FileName>
@@ -153,7 +141,7 @@
     <Position X="0.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAIBAAAAAAAAAQASAAAAAEAAgAAAAAAAAAAA=</HashCode>
-      <FileName>StateStack.h</FileName>
+      <FileName>d:\projects\C\SFML-2.4.0\include\SFML\Graphics\RenderWindow.hpp</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="GUI" Collapsed="true">

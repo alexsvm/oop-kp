@@ -2,21 +2,10 @@
 <ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
   <Class Name="Application">
     <Position X="0.5" Y="2" Width="2.25" />
-    <AssociationLine Name="Fonts" Type="FontHolder" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="0.5" Y="3.062" />
-        <Point X="0.292" Y="3.062" />
-        <Point X="0.292" Y="9.531" />
-        <Point X="0.5" Y="9.531" />
-      </Path>
-      <MemberNameLabel ManuallyPlaced="true">
-        <Position X="-0.45" Y="0.35" />
-      </MemberNameLabel>
-    </AssociationLine>
     <AssociationLine Name="Textures" Type="TextureHolder" ManuallyRouted="true">
       <Path>
-        <Point X="0.5" Y="2.875" />
-        <Point X="0.198" Y="2.875" />
+        <Point X="0.5" Y="2.933" />
+        <Point X="0.198" Y="2.933" />
         <Point X="0.198" Y="10.531" />
         <Point X="0.5" Y="10.531" />
       </Path>
@@ -24,17 +13,28 @@
         <Position X="-1.065" Y="0.36" Height="0.182" Width="1.236" />
       </MemberNameLabel>
     </AssociationLine>
+    <AssociationLine Name="Fonts" Type="FontHolder" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="0.5" Y="3.132" />
+        <Point X="0.292" Y="3.132" />
+        <Point X="0.292" Y="9.531" />
+        <Point X="0.5" Y="9.531" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.45" Y="0.35" />
+      </MemberNameLabel>
+    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>ADAAAgAAABAAAABAAAIAACAAQACACAAAAAAASEAUAAA=</HashCode>
+      <HashCode>ADAAAgACABAAAABAAAIAACAAQACACAAAAAAASEAUAAA=</HashCode>
       <FileName>Application.h</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Field Name="mStateStack" />
-      <Field Name="mHUD" />
-      <Field Name="mGUI" />
-      <Field Name="Fonts" />
-      <Field Name="Textures" />
       <Field Name="Window" />
+      <Field Name="Textures" />
+      <Field Name="Fonts" />
+      <Field Name="mGUI" />
+      <Field Name="mHUD" />
+      <Field Name="mStateStack" />
     </ShowAsAssociation>
   </Class>
   <Class Name="State">
@@ -158,182 +158,62 @@
   </Class>
   <Class Name="sf::Texture" Collapsed="true">
     <Position X="8.75" Y="2.25" Width="1.5" />
-    <NestedTypes>
-      <Enum Name="sf::Texture::CoordinateType" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>ResourceManager.h</NewMemberFileName>
-        </TypeIdentifier>
-      </Enum>
-    </NestedTypes>
     <TypeIdentifier>
       <HashCode>AIAAEQAAYMACgAhCACAMAgAAABBAACAAAAJwBAJEAIg=</HashCode>
-      <FileName>ResourceManager.h</FileName>
+      <FileName>d:\projects\C\SFML-2.4.0\include\SFML\Graphics\Texture.hpp</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="sf::Font" Collapsed="true">
     <Position X="10.5" Y="1.5" Width="1.5" />
-    <NestedTypes>
-      <Struct Name="sf::Font::Info" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>ResourceManager.h</NewMemberFileName>
-        </TypeIdentifier>
-      </Struct>
-      <Struct Name="sf::Font::Row" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>ResourceManager.h</NewMemberFileName>
-        </TypeIdentifier>
-      </Struct>
-      <Typedef Name="sf::Font::GlyphTable" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>ResourceManager.h</NewMemberFileName>
-        </TypeIdentifier>
-      </Typedef>
-      <Struct Name="sf::Font::Page" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>ResourceManager.h</NewMemberFileName>
-        </TypeIdentifier>
-      </Struct>
-      <Typedef Name="sf::Font::PageTable" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>ResourceManager.h</NewMemberFileName>
-        </TypeIdentifier>
-      </Typedef>
-    </NestedTypes>
     <TypeIdentifier>
       <HashCode>wAAAAQAAAGAAAgEAAAAIAEBC4AAAAAAIQEAwEAAmRAE=</HashCode>
-      <FileName>ResourceManager.h</FileName>
+      <FileName>d:\projects\C\SFML-2.4.0\include\SFML\Graphics\Font.hpp</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="sf::Event" Collapsed="true">
     <Position X="8.75" Y="1.5" Width="1.5" />
-    <NestedTypes>
-      <Struct Name="sf::Event::MouseWheelScrollEvent" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>StateStack.h</NewMemberFileName>
-        </TypeIdentifier>
-      </Struct>
-      <Struct Name="sf::Event::MouseButtonEvent" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>StateStack.h</NewMemberFileName>
-        </TypeIdentifier>
-      </Struct>
-      <Struct Name="sf::Event::TextEvent" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>StateStack.h</NewMemberFileName>
-        </TypeIdentifier>
-      </Struct>
-      <Struct Name="sf::Event::SensorEvent" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>StateStack.h</NewMemberFileName>
-        </TypeIdentifier>
-      </Struct>
-      <Struct Name="sf::Event::TouchEvent" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>StateStack.h</NewMemberFileName>
-        </TypeIdentifier>
-      </Struct>
-      <Struct Name="sf::Event::JoystickConnectEvent" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>StateStack.h</NewMemberFileName>
-        </TypeIdentifier>
-      </Struct>
-      <Struct Name="sf::Event::JoystickMoveEvent" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>StateStack.h</NewMemberFileName>
-        </TypeIdentifier>
-      </Struct>
-      <Struct Name="sf::Event::JoystickButtonEvent" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>StateStack.h</NewMemberFileName>
-        </TypeIdentifier>
-      </Struct>
-      <Enum Name="sf::Event::EventType" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>World.h</NewMemberFileName>
-        </TypeIdentifier>
-      </Enum>
-      <Struct Name="sf::Event::KeyEvent" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>StateStack.h</NewMemberFileName>
-        </TypeIdentifier>
-      </Struct>
-      <Struct Name="sf::Event::SizeEvent" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>StateStack.h</NewMemberFileName>
-        </TypeIdentifier>
-      </Struct>
-      <Struct Name="sf::Event::MouseWheelEvent" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>StateStack.h</NewMemberFileName>
-        </TypeIdentifier>
-      </Struct>
-      <Struct Name="sf::Event::MouseMoveEvent" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>StateStack.h</NewMemberFileName>
-        </TypeIdentifier>
-      </Struct>
-    </NestedTypes>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>StateStack.h</FileName>
+      <FileName>d:\projects\C\SFML-2.4.0\include\SFML\Window\Event.hpp</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="sf::RenderWindow" Collapsed="true">
     <Position X="0.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAIBAAAAAAAAAQASAAAAAEAAgAAAAAAAAAAA=</HashCode>
-      <FileName>StateStack.h</FileName>
+      <FileName>d:\projects\C\SFML-2.4.0\include\SFML\Graphics\RenderWindow.hpp</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="sf::Sprite" Collapsed="true">
     <Position X="10.5" Y="2.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAQACBEAIAgACAAIAAAAAAAAAACAwAAAAgAIIAAA=</HashCode>
-      <FileName>Utility.h</FileName>
+      <FileName>d:\projects\C\SFML-2.4.0\include\SFML\Graphics\Sprite.hpp</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="sf::Text" Collapsed="true">
     <Position X="8.75" Y="0.5" Width="1.5" />
-    <NestedTypes>
-      <Enum Name="sf::Text::Style" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>Utility.h</NewMemberFileName>
-        </TypeIdentifier>
-      </Enum>
-    </NestedTypes>
     <TypeIdentifier>
       <HashCode>BAAAAAhGJCAIQADABAIAAABEwBUAkgAIAAECiABIQAA=</HashCode>
-      <FileName>Utility.h</FileName>
+      <FileName>d:\projects\C\SFML-2.4.0\include\SFML\Graphics\Text.hpp</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="sf::RectangleShape" Collapsed="true">
     <Position X="8.75" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAgAIAAAAgAAAAAAAAAAAAAAAAAAAAAAAIAACI=</HashCode>
-      <FileName>Utility.h</FileName>
+      <FileName>d:\projects\C\SFML-2.4.0\include\SFML\Graphics\RectangleShape.hpp</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="sf::Clock" Collapsed="true">
     <Position X="10.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAABAAgAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAgA=</HashCode>
-      <FileName>World.h</FileName>
+      <FileName>d:\projects\C\SFML-2.4.0\include\SFML\System\Clock.hpp</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ClockHUD" Collapsed="true">
     <Position X="0.5" Y="8" Width="1.5" />
-    <NestedTypes>
-      <Struct Name="ClockHUD::Stat" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>ClockHUD.h</NewMemberFileName>
-        </TypeIdentifier>
-      </Struct>
-      <Typedef Name="ClockHUD::Stats_t" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>ClockHUD.h</NewMemberFileName>
-        </TypeIdentifier>
-      </Typedef>
-    </NestedTypes>
     <TypeIdentifier>
       <HashCode>AEAAAAABIAAAAAAAAAIACAAAAAAAAAAAAIAAAAAAAAA=</HashCode>
       <FileName>ClockHUD.h</FileName>

@@ -5,7 +5,7 @@
 
 StateGame::StateGame(StateStack& stack, Context context)
 	: State(stack, context)
-	, mWorld(*context.window)
+	, mWorld(*context.window, *context.player)
 	//, mPlayer(*context.player)
 {
 	sf::RenderWindow& window = *getContext().window;

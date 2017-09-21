@@ -5,7 +5,7 @@
 //#include "SpriteNode.h"
 #include "BlueBox.h"
 #include "RedBox.h"
-
+#include "Player.h"
 //#include <Book/CommandQueue.hpp>
 //#include <Book/Command.hpp>
 
@@ -38,7 +38,7 @@ public:
 		Over
 	};
 
-	explicit World(sf::RenderWindow& window);
+	explicit World(sf::RenderWindow& window, Player& player);
 	void update(sf::Time dt);
 	void draw();
 	virtual bool handleEvent(const sf::Event& event);
@@ -47,8 +47,8 @@ public:
 	State getState();
 	void setState(State state);
 
-	float getScoreCurrent() { return mScoreCurrent; };
-	float getScoreBest() { return mScoreBest; };
+	float getScoreCurrent() { return mPlayer->mScoreCurrent; };
+	float getScoreBest() { return mPlayer->mScoreBest; };
 
 	void reset();
 
@@ -66,8 +66,10 @@ private:
 
 private:
 	State mState;
-	float mScoreCurrent;
-	float mScoreBest;
+	Player* mPlayer;
+	
+	//float mScoreCurrent;
+	//float mScoreBest;
 
 	sf::Clock mScoreClock;
 

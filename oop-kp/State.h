@@ -2,6 +2,7 @@
 
 #include "ResourceManager.h"
 #include "GUI.h"
+#include "Player.h"
 #include <SFML/System/Time.hpp>
 #include <SFML/Window/Event.hpp>
 
@@ -23,7 +24,6 @@ namespace States {
 
 
 class StateStack;
-class Player;
 
 class State {
 
@@ -31,13 +31,13 @@ public:
 	typedef std::unique_ptr<State> Ptr;
 
 	struct Context {
-		Context(sf::RenderWindow& window, TextureHolder& textures, FontHolder& fonts, GUI& gui); // , Player& player);
+		Context(sf::RenderWindow& window, TextureHolder& textures, FontHolder& fonts, GUI& gui, Player& player);
 
 		sf::RenderWindow*	window;
 		TextureHolder*		textures;
 		FontHolder*			fonts;
 		GUI*				gui;
-		//Player*				player;
+		Player*				player;
 	};
 
 public:

@@ -134,6 +134,9 @@
     <ClInclude Include="Foreach.h">
       <Filter>Заголовочные файлы</Filter>
     </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Заголовочные файлы</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\TitleScreen.png">
@@ -145,5 +148,28 @@
     <None Include="..\З16ИВТ. Мамаков А.В. ООП. Курсовая работа.docx" />
     <None Include="ClassDiagram.cd" />
     <None Include="ClassDiagram - App etc.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="..\fonts\abc pipe.ttf">
+      <Filter>Файлы ресурсов</Filter>
+    </Font>
+    <Font Include="..\fonts\AvanteTitulInline.ttf">
+      <Filter>Файлы ресурсов</Filter>
+    </Font>
+    <Font Include="..\fonts\Cellblock NBP.otf">
+      <Filter>Файлы ресурсов</Filter>
+    </Font>
+    <Font Include="..\fonts\Ghost Clan Gradient.ttf">
+      <Filter>Файлы ресурсов</Filter>
+    </Font>
+    <Font Include="..\fonts\Hermes.ttf">
+      <Filter>Файлы ресурсов</Filter>
+    </Font>
+    <Font Include="..\fonts\K22 Xanthus.ttf">
+      <Filter>Файлы ресурсов</Filter>
+    </Font>
+    <Font Include="..\fonts\MachineC.otf">
+      <Filter>Файлы ресурсов</Filter>
+    </Font>
   </ItemGroup>
 </Project>

@@ -1,5 +1,4 @@
 #include "World.h"
-
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/Window/Mouse.hpp>
 #include <SFML/Window/Event.hpp>
@@ -8,16 +7,17 @@
 #include <cmath>
 
 
-World::World(sf::RenderWindow& window)
+World::World(sf::RenderWindow& window, Player& player)
 	: mWindow(window)
+	, mPlayer(&player)
 	, mWorldView(window.getDefaultView())
 	, mSceneGraph()
 	, mSceneLayers()
 	, mWorldBounds(50.f, 50.f, mWorldView.getSize().x - 100, mWorldView.getSize().y - 100)
 	, red(sf::Vector2f(68.f, 68.f))
 	, mState(World::Waiting)
-	, mScoreBest(0.f)
-	, mScoreCurrent(0.f)
+	//, mScoreBest(0.f)
+	//, mScoreCurrent(0.f)
 {
 	boundShape.setSize(sf::Vector2f(mWorldBounds.width, mWorldBounds.height));
 	boundShape.setPosition(50.f, 50.f);
@@ -53,8 +53,8 @@ void World::update(sf::Time dt) {
 	// check collision RED and boundShape
 	if (!(worldBounds.contains(lt) && worldBounds.contains(lb) && worldBounds.contains(rt) && worldBounds.contains(rb))) {
 		mState = World::Over;
-		if (mScoreCurrent > mScoreBest)
-			mScoreBest = mScoreCurrent;
+		if (mPlayer->mScoreCurrent > mPlayer->mScoreBest)
+			mPlayer->mScoreBest = mPlayer->mScoreCurrent;
 	}
 
 	// update blues and check theirs collisions with world bounds!
@@ -76,11 +76,11 @@ void World::update(sf::Time dt) {
 		itemVelocity.y >= 0 ? itemVelocity.y += it->getAccelleration() * dt.asSeconds() : itemVelocity.y -= it->getAccelleration() * dt.asSeconds();
 		it->setVelocity(itemVelocity);
 		it->move(deltaX, deltaY);
-		mScoreCurrent = mScoreClock.getElapsedTime().asSeconds();
+		mPlayer->mScoreCurrent = mScoreClock.getElapsedTime().asSeconds();
 		if (it->getBounds().contains(lt) || it->getBounds().contains(lb) || it->getBounds().contains(rt) || it->getBounds().contains(rb)) {
 			mState = World::Over;
-			if (mScoreCurrent > mScoreBest) 
-				mScoreBest = mScoreCurrent;
+			if (mPlayer->mScoreCurrent >mPlayer->mScoreBest)
+				mPlayer->mScoreBest = mPlayer->mScoreCurrent;
 		}
 	} // for (auto &it : blues) {
 

@@ -7,7 +7,8 @@ Application::Application() : /*nomad1(100, 100, 200),*/
 	Textures(),
 	Fonts(),
 	mGUI(Fonts),
-	mStateStack(State::Context(Window, Textures, Fonts, mGUI)),
+	mPlayer(),
+	mStateStack(State::Context(Window, Textures, Fonts, mGUI, mPlayer)),
 	showHUD(true)
 {
 	srand(std::time(NULL));
@@ -30,14 +31,13 @@ Application::Application() : /*nomad1(100, 100, 200),*/
 	std::cout << light_red << " red " << on_blue << " on blue " << grey << on_black << "back in black " << std::endl;
 
 	// Loading resources:
-	Fonts.load(Fonts::Main, "fonts\\hermes.ttf"); 
-	Fonts.load(Fonts::Menu, "fonts\\menu.ttf");
-	Fonts.load(Fonts::HUD, "fonts\\hermes.ttf");
+	Fonts.load(Fonts::Main, "fonts\\Hermes.ttf"); 
+	Fonts.load(Fonts::Menu, "fonts\\AvanteTitulInline.ttf");
+	Fonts.load(Fonts::HUD, "fonts\\Hermes.ttf");
 	Textures.load(Textures::TitleScreen, "textures\\TitleScreen.png");
 
 	mGUI.init();
-
-	mHUD = new HUD(State::Context{ Window, Textures, Fonts, mGUI });
+	mHUD = new HUD(State::Context{ Window, Textures, Fonts, mGUI, mPlayer });
 
 	registerStates();
 	mStateStack.pushState(States::Title);

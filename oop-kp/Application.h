@@ -21,6 +21,7 @@
 //#include "nomads.h"
 #include "ColorConsole.h"
 #include "HUD.h"
+#include "Player.h"
 
 using namespace std;
 
@@ -58,7 +59,7 @@ private:
 	HUD *mHUD;
 	bool showHUD;
 
-	//Player					mPlayer;
+	Player mPlayer;
 
 	StateStack mStateStack;
 
