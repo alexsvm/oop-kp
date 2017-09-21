@@ -1,4 +1,5 @@
 #include "StateScore.h"
+#include <sstream>
 #include <SFML/Graphics/RenderWindow.hpp>
 
 StateScore::StateScore(StateStack & stack, Context context) : State(stack, context) {
@@ -13,13 +14,15 @@ StateScore::StateScore(StateStack & stack, Context context) : State(stack, conte
 
 	auto Label1 = sfg::Label::Create("Your final score is : ");
 	auto Label2 = sfg::Label::Create("Your best score is : ");
+	lblCScore = sfg::Label::Create("");
+	lblBScore = sfg::Label::Create("");
 
 	sfg::Box::Ptr box = sfg::Box::Create(sfg::Box::Orientation::VERTICAL);
-	box->SetSpacing(20.f);
+	box->SetSpacing(10.f);
 	box->Pack(Label1);
+	box->Pack(lblCScore);
 	box->Pack(Label2);
-	//box->Pack(btnPlay, false);
-	//box->Pack(btnExit, false);
+	box->Pack(lblBScore);
 
 	sfgWindow = sfg::Window::Create();
 	sfgWindow->SetTitle("Score");
@@ -34,6 +37,8 @@ StateScore::StateScore(StateStack & stack, Context context) : State(stack, conte
 	sfgWindow->SetId("score_window");
 	Label1->SetId("score_label");
 	Label2->SetId("score_label");
+	lblCScore->SetId("score_label");
+	lblBScore->SetId("score_label");
 
 	//getContext().gui->sfgDesktop.Add(sfgWindow);
 
@@ -67,4 +72,15 @@ void StateScore::beforeStackPop() {
 
 void StateScore::afterStackPush() {
 	getContext().gui->sfgDesktop.Add(sfgWindow);
+
+	std::stringstream sc;
+	sc << std::fixed << std::setprecision(2) << getContext().player->mScoreCurrent;
+	lblCScore->SetText(sc.str());
+	
+	std::stringstream sb;
+	sb << std::fixed << std::setprecision(2) << getContext().player->mScoreBest;
+	lblBScore->SetText(sb.str());
+
+	//lblCScore->SetText(std::to_string(getContext().player->mScoreCurrent));
+	//lblBScore->SetText(std::to_string(getContext().player->mScoreBest));
 }

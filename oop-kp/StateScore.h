@@ -14,9 +14,9 @@ public:
 
 private:
 	sfg::Window::Ptr sfgWindow;
+	sfg::Label::Ptr lblCScore;
+	sfg::Label::Ptr lblBScore;
 
-	//sfg::Button::Ptr btnPlay;
-	//sfg::Button::Ptr btnExit;
 
 public:
 	virtual void beforeStackPop();

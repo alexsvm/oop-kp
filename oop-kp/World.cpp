@@ -51,6 +51,7 @@ void World::update(sf::Time dt) {
 	sf::Vector2f rt = { RB.left + RB.width, RB.top };
 	sf::Vector2f rb = { RB.left + RB.width, RB.top + RB.height };
 	// check collision RED and boundShape
+	mPlayer->mScoreCurrent = mScoreClock.getElapsedTime().asSeconds();
 	if (!(worldBounds.contains(lt) && worldBounds.contains(lb) && worldBounds.contains(rt) && worldBounds.contains(rb))) {
 		mState = World::Over;
 		if (mPlayer->mScoreCurrent > mPlayer->mScoreBest)
