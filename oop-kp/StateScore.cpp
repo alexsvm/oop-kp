@@ -72,7 +72,4 @@ void StateScore::afterStackPush() {
 	std::stringstream sb;
 	sb << std::fixed << std::setprecision(2) << getContext().player->mScoreBest;
 	lblBScore->SetText(sb.str());
-
-	//lblCScore->SetText(std::to_string(getContext().player->mScoreCurrent));
-	//lblBScore->SetText(std::to_string(getContext().player->mScoreBest));
 }
