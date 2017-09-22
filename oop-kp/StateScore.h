@@ -17,9 +17,7 @@ private:
 	sfg::Label::Ptr lblCScore;
 	sfg::Label::Ptr lblBScore;
 
-
 public:
 	virtual void beforeStackPop();
 	virtual void afterStackPush();
-
 };

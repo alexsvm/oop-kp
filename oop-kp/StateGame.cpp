@@ -13,7 +13,6 @@ StateGame::StateGame(StateStack& stack, Context context)
 	mScoreText.setColor({ 0, 200, 200, 200 });
 	mScoreText.setString("42");
 	mScoreText.setPosition(sf::Vector2f(10, window.getSize().y - mScoreText.getLocalBounds().height * 2 ));
-	;
 }
 
 void StateGame::draw() {
@@ -27,7 +26,6 @@ bool StateGame::update(sf::Time dt) {
 	mScoreText.setString(std::to_string(mWorld.getScoreCurrent()));
 	//CommandQueue& commands = mWorld.getCommandQueue();
 	//mPlayer.handleRealtimeInput(commands);
-	
 	return true;
 }
 
@@ -49,6 +47,5 @@ bool StateGame::handleEvent(const sf::Event& event) {
 		requestStackPush(States::Score);
 		mWorld.setState(World::State::Stopped);
 	}
-
 	return true;
 }

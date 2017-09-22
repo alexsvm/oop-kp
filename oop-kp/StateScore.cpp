@@ -52,9 +52,7 @@ bool StateScore::handleEvent(const sf::Event & event) {
 		requestStackPop();
 		requestStackPush(States::Menu);
 	}
-
 	getContext().gui->sfgDesktop.HandleEvent(event);
-	
 	return true;
 }
 

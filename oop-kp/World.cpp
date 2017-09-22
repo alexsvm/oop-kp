@@ -16,8 +16,6 @@ World::World(sf::RenderWindow& window, Player& player)
 	, mWorldBounds(50.f, 50.f, mWorldView.getSize().x - 100, mWorldView.getSize().y - 100)
 	, red(sf::Vector2f(68.f, 68.f))
 	, mState(World::Waiting)
-	//, mScoreBest(0.f)
-	//, mScoreCurrent(0.f)
 {
 	boundShape.setSize(sf::Vector2f(mWorldBounds.width, mWorldBounds.height));
 	boundShape.setPosition(50.f, 50.f);
@@ -84,9 +82,6 @@ void World::update(sf::Time dt) {
 				mPlayer->mScoreBest = mPlayer->mScoreCurrent;
 		}
 	} // for (auto &it : blues) {
-
-
-	
 }
 
 void World::draw() {
@@ -114,7 +109,6 @@ bool World::handleEvent(const sf::Event & event) {
 			;
 		}
 	} // <=MouseButtonReleased
-
 	return true;
 }
 

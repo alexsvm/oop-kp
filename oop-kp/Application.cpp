@@ -75,11 +75,9 @@ void Application::processInput() {
 			Window.close();
 		}
 
-		if (event.type == sf::Event::Resized)
-		{
+		if (event.type == sf::Event::Resized) {
 			sf::FloatRect visibleArea(0, 0, event.size.width, event.size.height);
 			Window.setView(sf::View(visibleArea));
-
 		}
 		//if (event.type == sf::Event::KeyPressed) {
 		//	if (event.key.code == sf::Keyboard::Up) {
@@ -140,8 +138,10 @@ void Application::render() {
 
 	mStateStack.draw();
 
-	if (showHUD) mHUD->end_update();
-	if (showHUD) mHUD->draw();
+	if (showHUD) {
+		mHUD->end_update();
+		mHUD->draw();
+	}
 
 	Window.display();
 }
