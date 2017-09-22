@@ -27,7 +27,6 @@
 Button {
 	Color: #FF00FFFF;
 	BackgroundColor: #800000FF;
-	FontName: menu_font;
 	FontSize: 32;
 }
 		
@@ -40,6 +39,12 @@ Button:ACTIVE {
 	Color: #FFFF00FF;
 	BackgroundColor: #FF3030FF;
 }
+
+#btn_play {
+	FontName: fonts/abc pipe.ttf;
+	Color: #FFFFFFFF;
+	BackgroundColor: #8F2F2FFF;
+	}
 
 #btn_play:PRELIGHT {
 	Color: #FFFFFFFF;
