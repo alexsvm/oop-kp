@@ -69,5 +69,4 @@ void StateMenu::beforeStackPop() {
 
 void StateMenu::afterStackPush() {
 	getContext().gui->sfgDesktop.Add(sfgWindow);
-	//getContext().gui->sfgDesktop.Add(sfgWindow);
 }

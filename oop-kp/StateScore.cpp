@@ -4,20 +4,12 @@
 
 StateScore::StateScore(StateStack & stack, Context context) : State(stack, context) {
 
-	//btnPlay = sfg::Button::Create(" P L A Y ");
-	//btnPlay->GetSignal(sfg::Widget::OnLeftClick).Connect([this] { requestStackPop();  requestStackPush(States::Game); });
-	//btnPlay->SetRequisition(sf::Vector2f(0.f, 64.f));
-
-
-	//btnExit = sfg::Button::Create(" E X I T ");
-	//btnExit->GetSignal(sfg::Widget::OnLeftClick).Connect([this] { requestStackPop(); });
-
 	auto Label1 = sfg::Label::Create("Your final score is : ");
 	auto Label2 = sfg::Label::Create("Your best score is : ");
 	lblCScore = sfg::Label::Create("");
 	lblBScore = sfg::Label::Create("");
 
-	sfg::Box::Ptr box = sfg::Box::Create(sfg::Box::Orientation::VERTICAL);
+	auto box = sfg::Box::Create(sfg::Box::Orientation::VERTICAL);
 	box->SetSpacing(10.f);
 	box->Pack(Label1);
 	box->Pack(lblCScore);
