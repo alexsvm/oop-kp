@@ -7,6 +7,7 @@ public:
 	float mScoreBest;
 	
 	Player() : mScoreCurrent(0.f), mScoreBest(0.f) {};
+};
 
 //	void handleEvent(const sf::Event& event, CommandQueue& commands);
 //	void handleRealtimeInput(CommandQueue& commands);
@@ -23,5 +24,3 @@ public:
 //private:
 //	std::map<sf::Keyboard::Key, Action>		mKeyBinding;
 //	std::map<Action, Command>				mActionBinding;
-
-};
