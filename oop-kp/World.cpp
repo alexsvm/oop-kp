@@ -38,6 +38,8 @@ void World::update(sf::Time dt) {
 		return;
 	
 	auto worldBounds = sf::FloatRect(boundShape.getPosition(), boundShape.getSize());
+	auto worldBounds4Blue = sf::FloatRect(0, 0, 
+		mWindow.getSize().x, mWindow.getSize().y);
 
 	// update RED:
 	sf::Vector2f mouse_pos{ sf::Mouse::getPosition(mWindow) }; // -mWindow.getPosition() };
@@ -62,11 +64,11 @@ void World::update(sf::Time dt) {
 		auto deltaX = itemVelocity.x * dt.asSeconds();
 		auto deltaY = itemVelocity.y * dt.asSeconds();
 		auto itemBounds = it->getBounds();
-		if (worldBounds.left >= (itemBounds.left + deltaX) || (worldBounds.left + worldBounds.width) <= (itemBounds.left + itemBounds.width + deltaX)) { // left or right intersection
+		if (worldBounds4Blue.left >= (itemBounds.left + deltaX) || (worldBounds4Blue.left + worldBounds4Blue.width) <= (itemBounds.left + itemBounds.width + deltaX)) { // left or right intersection
 			deltaX = -deltaX;
 			itemVelocity.x = - itemVelocity.x;
 		}
-		if (worldBounds.top >= (itemBounds.top + deltaY) || (worldBounds.top + worldBounds.height) <= (itemBounds.top + itemBounds.height + deltaY)) { // top or bottom intersection
+		if (worldBounds4Blue.top >= (itemBounds.top + deltaY) || (worldBounds4Blue.top + worldBounds4Blue.height) <= (itemBounds.top + itemBounds.height + deltaY)) { // top or bottom intersection
 			deltaY = -deltaY;
 			itemVelocity.y = -itemVelocity.y;
 		}
