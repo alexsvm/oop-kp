@@ -21,5 +21,4 @@ private:
 	sf::Text mScoreText;
 
 	World				mWorld;
-	//Player&				mPlayer;
 };

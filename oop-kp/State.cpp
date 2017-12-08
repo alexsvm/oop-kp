@@ -1,7 +1,6 @@
 #include "State.h"
 #include "StateStack.h"
 
-
 State::Context::Context(sf::RenderWindow& window, TextureHolder& textures, FontHolder& fonts, GUI& gui, Player& player) 
 	: window(&window)
 	, textures(&textures)
@@ -11,7 +10,6 @@ State::Context::Context(sf::RenderWindow& window, TextureHolder& textures, FontH
 {
 
 }
-
 
 State::State(StateStack& stack, Context context) : mStack(&stack), mContext(context) {
 
@@ -24,7 +22,6 @@ State::~State() {
 void State::requestStackPush(States::ID stateID) {
 	//afterStackPush();
 	mStack->pushState(stateID);
-	
 }
 
 void State::requestStackPop() {
