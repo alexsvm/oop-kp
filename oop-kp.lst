@@ -1,0 +1,46 @@
+File name            Size              
+-----------------    ---------------   
+Application.h                  1,157   
+Application.cpp                4,847   
+BlueBox.h                        574   
+BlueBox.cpp                    1,334   
+Category.h                       132   
+ClockHUD.h                     2,632   
+collision.h                      565   
+collision.cpp                    885   
+ColorConsole.h                10,935   
+Entity.cpp                       644   
+Entity.h                         515   
+Foreach.h                      1,085   
+FrameClock.h                   6,668   
+GUI.h                          2,044   
+HUD.h                            302   
+HUD.cpp                          479   
+items.cpp                      5,188   
+items.h                          642   
+nomads.h                       2,176   
+oop-kp.cpp                       168   
+Player.h                         616   
+RedBox.cpp                       766   
+RedBox.h                         381   
+ResourceManager.h              2,843   
+SceneNode.h                    1,170   
+SceneNode.cpp                  2,398   
+State.cpp                        794   
+State.h                        1,154   
+StateGame.h                      434   
+StateGame.cpp                  1,497   
+StateMenu.h                      550   
+StateMenu.cpp                  2,264   
+StateScore.cpp                 2,177   
+StateScore.h                     484   
+StateStack.h                   1,377   
+StateStack.cpp                 2,231   
+StateTitle.h                     445   
+StateTitle.cpp                 1,265   
+Utility.h                        717   
+Utility.cpp                    4,142   
+World.h                        1,663   
+World.cpp                      7,985   
+
+total files 42    total size          80,325
